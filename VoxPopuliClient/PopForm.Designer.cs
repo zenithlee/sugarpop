@@ -32,22 +32,22 @@
       this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
       this.statusStrip1 = new System.Windows.Forms.StatusStrip();
       this.StatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+      this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+      this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+      this.CompactModeButton = new System.Windows.Forms.Button();
+      this.SettingsButton = new System.Windows.Forms.Button();
       this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+      this.urlBar1 = new VoxPopuliClient.src.controls.URLBar();
       this.browserControl1 = new VoxPopuliClient.src.controls.BrowserControl();
       this.chatList1 = new VoxPopuliClient.src.controls.ChatList();
-      this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-      this.urlBar1 = new VoxPopuliClient.src.controls.URLBar();
-      this.SettingsButton = new System.Windows.Forms.Button();
-      this.CompactModeButton = new System.Windows.Forms.Button();
-      this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
       this.tableLayoutPanel1.SuspendLayout();
       this.statusStrip1.SuspendLayout();
+      this.tableLayoutPanel2.SuspendLayout();
+      this.tableLayoutPanel3.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
       this.splitContainer1.Panel1.SuspendLayout();
       this.splitContainer1.Panel2.SuspendLayout();
       this.splitContainer1.SuspendLayout();
-      this.tableLayoutPanel2.SuspendLayout();
-      this.tableLayoutPanel3.SuspendLayout();
       this.SuspendLayout();
       // 
       // tableLayoutPanel1
@@ -84,6 +84,67 @@
       this.StatusLabel.Size = new System.Drawing.Size(125, 27);
       this.StatusLabel.Text = "Welcome to SugarPop";
       // 
+      // tableLayoutPanel2
+      // 
+      this.tableLayoutPanel2.AutoSize = true;
+      this.tableLayoutPanel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+      this.tableLayoutPanel2.ColumnCount = 2;
+      this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+      this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+      this.tableLayoutPanel2.Controls.Add(this.urlBar1, 0, 0);
+      this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 1, 0);
+      this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
+      this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+      this.tableLayoutPanel2.RowCount = 1;
+      this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+      this.tableLayoutPanel2.Size = new System.Drawing.Size(1055, 68);
+      this.tableLayoutPanel2.TabIndex = 5;
+      // 
+      // tableLayoutPanel3
+      // 
+      this.tableLayoutPanel3.ColumnCount = 1;
+      this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+      this.tableLayoutPanel3.Controls.Add(this.CompactModeButton, 0, 0);
+      this.tableLayoutPanel3.Controls.Add(this.SettingsButton, 0, 1);
+      this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.tableLayoutPanel3.Location = new System.Drawing.Point(1024, 1);
+      this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(1);
+      this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+      this.tableLayoutPanel3.RowCount = 2;
+      this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+      this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+      this.tableLayoutPanel3.Size = new System.Drawing.Size(30, 66);
+      this.tableLayoutPanel3.TabIndex = 6;
+      // 
+      // CompactModeButton
+      // 
+      this.CompactModeButton.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.CompactModeButton.FlatAppearance.BorderSize = 0;
+      this.CompactModeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+      this.CompactModeButton.Image = ((System.Drawing.Image)(resources.GetObject("CompactModeButton.Image")));
+      this.CompactModeButton.Location = new System.Drawing.Point(1, 1);
+      this.CompactModeButton.Margin = new System.Windows.Forms.Padding(1);
+      this.CompactModeButton.Name = "CompactModeButton";
+      this.CompactModeButton.Size = new System.Drawing.Size(33, 31);
+      this.CompactModeButton.TabIndex = 5;
+      this.CompactModeButton.UseVisualStyleBackColor = true;
+      this.CompactModeButton.Click += new System.EventHandler(this.CompactModeButton_Click);
+      // 
+      // SettingsButton
+      // 
+      this.SettingsButton.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.SettingsButton.FlatAppearance.BorderSize = 0;
+      this.SettingsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+      this.SettingsButton.Image = ((System.Drawing.Image)(resources.GetObject("SettingsButton.Image")));
+      this.SettingsButton.Location = new System.Drawing.Point(1, 34);
+      this.SettingsButton.Margin = new System.Windows.Forms.Padding(1);
+      this.SettingsButton.Name = "SettingsButton";
+      this.SettingsButton.Size = new System.Drawing.Size(33, 31);
+      this.SettingsButton.TabIndex = 4;
+      this.SettingsButton.UseVisualStyleBackColor = true;
+      this.SettingsButton.Click += new System.EventHandler(this.SettingsButton_Click);
+      // 
       // splitContainer1
       // 
       this.splitContainer1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -102,8 +163,17 @@
       this.splitContainer1.Panel2.BackColor = System.Drawing.Color.Transparent;
       this.splitContainer1.Panel2.Controls.Add(this.chatList1);
       this.splitContainer1.Size = new System.Drawing.Size(1059, 520);
-      this.splitContainer1.SplitterDistance = 782;
+      this.splitContainer1.SplitterDistance = 700;
       this.splitContainer1.TabIndex = 2;
+      // 
+      // urlBar1
+      // 
+      this.urlBar1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+      this.urlBar1.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.urlBar1.Location = new System.Drawing.Point(3, 3);
+      this.urlBar1.Name = "urlBar1";
+      this.urlBar1.Size = new System.Drawing.Size(1017, 62);
+      this.urlBar1.TabIndex = 3;
       // 
       // browserControl1
       // 
@@ -111,7 +181,7 @@
       this.browserControl1.Dock = System.Windows.Forms.DockStyle.Fill;
       this.browserControl1.Location = new System.Drawing.Point(0, 0);
       this.browserControl1.Name = "browserControl1";
-      this.browserControl1.Size = new System.Drawing.Size(782, 520);
+      this.browserControl1.Size = new System.Drawing.Size(700, 520);
       this.browserControl1.TabIndex = 1;
       // 
       // chatList1
@@ -122,78 +192,8 @@
       this.chatList1.Location = new System.Drawing.Point(0, 0);
       this.chatList1.Margin = new System.Windows.Forms.Padding(1);
       this.chatList1.Name = "chatList1";
-      this.chatList1.Size = new System.Drawing.Size(273, 520);
+      this.chatList1.Size = new System.Drawing.Size(355, 520);
       this.chatList1.TabIndex = 0;
-      // 
-      // tableLayoutPanel2
-      // 
-      this.tableLayoutPanel2.AutoSize = true;
-      this.tableLayoutPanel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-      this.tableLayoutPanel2.ColumnCount = 2;
-      this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-      this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 37F));
-      this.tableLayoutPanel2.Controls.Add(this.urlBar1, 0, 0);
-      this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 1, 0);
-      this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
-      this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-      this.tableLayoutPanel2.RowCount = 1;
-      this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-      this.tableLayoutPanel2.Size = new System.Drawing.Size(1055, 68);
-      this.tableLayoutPanel2.TabIndex = 5;
-      // 
-      // urlBar1
-      // 
-      this.urlBar1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-      this.urlBar1.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.urlBar1.Location = new System.Drawing.Point(3, 3);
-      this.urlBar1.Name = "urlBar1";
-      this.urlBar1.Size = new System.Drawing.Size(1012, 62);
-      this.urlBar1.TabIndex = 3;
-      // 
-      // SettingsButton
-      // 
-      this.SettingsButton.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.SettingsButton.FlatAppearance.BorderSize = 0;
-      this.SettingsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-      this.SettingsButton.Image = ((System.Drawing.Image)(resources.GetObject("SettingsButton.Image")));
-      this.SettingsButton.Location = new System.Drawing.Point(1, 34);
-      this.SettingsButton.Margin = new System.Windows.Forms.Padding(1);
-      this.SettingsButton.Name = "SettingsButton";
-      this.SettingsButton.Size = new System.Drawing.Size(33, 31);
-      this.SettingsButton.TabIndex = 4;
-      this.SettingsButton.UseVisualStyleBackColor = true;
-      this.SettingsButton.Click += new System.EventHandler(this.SettingsButton_Click);
-      // 
-      // CompactModeButton
-      // 
-      this.CompactModeButton.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.CompactModeButton.FlatAppearance.BorderSize = 0;
-      this.CompactModeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-      this.CompactModeButton.Image = ((System.Drawing.Image)(resources.GetObject("CompactModeButton.Image")));
-      this.CompactModeButton.Location = new System.Drawing.Point(1, 1);
-      this.CompactModeButton.Margin = new System.Windows.Forms.Padding(1);
-      this.CompactModeButton.Name = "CompactModeButton";
-      this.CompactModeButton.Size = new System.Drawing.Size(33, 31);
-      this.CompactModeButton.TabIndex = 5;
-      this.CompactModeButton.UseVisualStyleBackColor = true;
-      this.CompactModeButton.Click += new System.EventHandler(this.CompactModeButton_Click);
-      // 
-      // tableLayoutPanel3
-      // 
-      this.tableLayoutPanel3.ColumnCount = 1;
-      this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-      this.tableLayoutPanel3.Controls.Add(this.CompactModeButton, 0, 0);
-      this.tableLayoutPanel3.Controls.Add(this.SettingsButton, 0, 1);
-      this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.tableLayoutPanel3.Location = new System.Drawing.Point(1019, 1);
-      this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(1);
-      this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-      this.tableLayoutPanel3.RowCount = 2;
-      this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-      this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-      this.tableLayoutPanel3.Size = new System.Drawing.Size(35, 66);
-      this.tableLayoutPanel3.TabIndex = 6;
       // 
       // PopForm
       // 
@@ -210,12 +210,12 @@
       this.tableLayoutPanel1.PerformLayout();
       this.statusStrip1.ResumeLayout(false);
       this.statusStrip1.PerformLayout();
+      this.tableLayoutPanel2.ResumeLayout(false);
+      this.tableLayoutPanel3.ResumeLayout(false);
       this.splitContainer1.Panel1.ResumeLayout(false);
       this.splitContainer1.Panel2.ResumeLayout(false);
       ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
       this.splitContainer1.ResumeLayout(false);
-      this.tableLayoutPanel2.ResumeLayout(false);
-      this.tableLayoutPanel3.ResumeLayout(false);
       this.ResumeLayout(false);
 
     }

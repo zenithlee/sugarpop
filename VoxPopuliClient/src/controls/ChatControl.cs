@@ -13,6 +13,7 @@ using VoxPopuliClient.comms;
 using VoxPopuliClient.models;
 using Newtonsoft.Json;
 using System.Threading;
+using VoxPopuliClient.src.forms;
 
 namespace VoxPopuliClient.src.controls
 {
@@ -85,6 +86,12 @@ namespace VoxPopuliClient.src.controls
     private void SmileButton_Click(object sender, EventArgs e)
     {
       CommentBox.Text += ":)p";
+    }
+
+    private void GetTrendsButton_Click(object sender, EventArgs e)
+    {
+      TrendsForm tf = new TrendsForm();
+      tf.Show(this);
     }
   }
 }

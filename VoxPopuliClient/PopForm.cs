@@ -23,7 +23,8 @@ namespace VoxPopuliClient
     public PopForm()
     {
       InitializeComponent();
-
+      FullWidth = Width;
+      FullSplit = splitContainer1.SplitterDistance;
       EventBus.StatusHandler += EventBus_StatusHandler;
     }
 
@@ -43,10 +44,12 @@ namespace VoxPopuliClient
       if (!Globals.IsInDesignMode())
       {
         Globals.settings = Settings.Load();
+        CompactMode = Globals.settings.StartInCompactMode;
         urlBar1.Setup();
         BrowserOptions bo = new BrowserOptions();
         EventBus.BrowseTo(Globals.CurrentURL);
-        chatList1.Setup();        
+        chatList1.Setup();
+        SwitchCompactMode();
       }
     }
 
@@ -60,10 +63,9 @@ namespace VoxPopuliClient
       Setup();
     }
 
-    private void CompactModeButton_Click(object sender, EventArgs e)
-    {
-      CompactMode = !CompactMode;
-      if ( CompactMode == true)
+    void SwitchCompactMode()
+    {      
+      if (CompactMode == true)
       {
         splitContainer1.Panel1Collapsed = true;
         FullWidth = Width;
@@ -80,7 +82,12 @@ namespace VoxPopuliClient
       }
 
       PerformLayout();
-      
+    }
+
+    private void CompactModeButton_Click(object sender, EventArgs e)
+    {
+      CompactMode = !CompactMode;
+      SwitchCompactMode();      
     }
   }
 }

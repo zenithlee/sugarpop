@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="..\packages\CefSharp.WinForms.71.0.0\build\CefSharp.WinForms.props" Condition="Exists('..\packages\CefSharp.WinForms.71.0.0\build\CefSharp.WinForms.props')" />
   <Import Project="..\packages\CefSharp.Common.71.0.0\build\CefSharp.Common.props" Condition="Exists('..\packages\CefSharp.Common.71.0.0\build\CefSharp.Common.props')" />
@@ -109,10 +109,10 @@
       <DependentUpon>ChromiumBrowserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="src\controls\ListViewItemEx.cs" />
-    <Compile Include="src\controls\SettingsForm.cs">
+    <Compile Include="src\forms\SettingsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="src\controls\SettingsForm.Designer.cs">
+    <Compile Include="src\forms\SettingsForm.Designer.cs">
       <DependentUpon>SettingsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="src\controls\URLBar.cs">
@@ -124,6 +124,12 @@
     <Compile Include="src\events\ChatEvent.cs" />
     <Compile Include="src\events\EventBus.cs" />
     <Compile Include="src\events\TextEvent.cs" />
+    <Compile Include="src\forms\TrendsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\forms\TrendsForm.Designer.cs">
+      <DependentUpon>TrendsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="src\Globals.cs" />
     <Compile Include="src\models\ChatItem.cs" />
     <Compile Include="src\models\Favorite.cs" />
@@ -152,11 +158,14 @@
     <EmbeddedResource Include="src\controls\ChromiumBrowserControl.resx">
       <DependentUpon>ChromiumBrowserControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="src\controls\SettingsForm.resx">
+    <EmbeddedResource Include="src\forms\SettingsForm.resx">
       <DependentUpon>SettingsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="src\controls\URLBar.resx">
       <DependentUpon>URLBar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\forms\TrendsForm.resx">
+      <DependentUpon>TrendsForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

@@ -5,6 +5,7 @@ The website does not have to exist, so you can create private rooms
 
 ## Features:  
 100% Anonymous  
+Tiny, less than 1mb  
 Add chat to any web page  
 Optional integrated browser  
 Compact mode, use it side-by-side other content  

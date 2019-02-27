@@ -12,10 +12,14 @@ namespace VoxPopuliClient.src
   {
     private static string SettingsFile = "settings.dat";
 
+
+    private bool startInCompactMode = false;
     private string serverMessage = "";
     private string serverURL = "http://bigfun.co.za/pop/";
+
     public string ServerURL { get => serverURL; set => serverURL = value; }
     public string ServerMessage { get => serverMessage; set => serverMessage = value; }
+    public bool StartInCompactMode { get => startInCompactMode; set => startInCompactMode = value; }
 
     public static Settings Load()
     {
