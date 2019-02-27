@@ -2,7 +2,7 @@
 
 Add Chat and comments to any website, even if comments is disabled.  
 The website does not have to exist, so you can create private rooms    
-Download at [htt://bigfun.co.za/pop]
+Download at [http://bigfun.co.za/pop](http://bigfun.co.za/pop)
 (under 1mb)
 
 ## Features:  
