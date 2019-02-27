@@ -1,0 +1,45 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2024
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VoxPopuliClient", "VoxPopuliClient\VoxPopuliClient.csproj", "{9B5F34F5-7BD2-48D5-A4EA-2E07B09A2E01}"
+EndProject
+Project("{A0786B88-2ADB-4C21-ABE8-AA2D79766269}") = "VoxPopServer", "VoxPopServer\VoxPopServer.phpproj", "{E9274659-B65D-443F-8AB5-54FCD2A1B906}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9B5F34F5-7BD2-48D5-A4EA-2E07B09A2E01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B5F34F5-7BD2-48D5-A4EA-2E07B09A2E01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B5F34F5-7BD2-48D5-A4EA-2E07B09A2E01}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{9B5F34F5-7BD2-48D5-A4EA-2E07B09A2E01}.Debug|x64.Build.0 = Debug|Any CPU
+		{9B5F34F5-7BD2-48D5-A4EA-2E07B09A2E01}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{9B5F34F5-7BD2-48D5-A4EA-2E07B09A2E01}.Debug|x86.Build.0 = Debug|Any CPU
+		{9B5F34F5-7BD2-48D5-A4EA-2E07B09A2E01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B5F34F5-7BD2-48D5-A4EA-2E07B09A2E01}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B5F34F5-7BD2-48D5-A4EA-2E07B09A2E01}.Release|x64.ActiveCfg = Release|Any CPU
+		{9B5F34F5-7BD2-48D5-A4EA-2E07B09A2E01}.Release|x64.Build.0 = Release|Any CPU
+		{9B5F34F5-7BD2-48D5-A4EA-2E07B09A2E01}.Release|x86.ActiveCfg = Release|Any CPU
+		{9B5F34F5-7BD2-48D5-A4EA-2E07B09A2E01}.Release|x86.Build.0 = Release|Any CPU
+		{E9274659-B65D-443F-8AB5-54FCD2A1B906}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9274659-B65D-443F-8AB5-54FCD2A1B906}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{E9274659-B65D-443F-8AB5-54FCD2A1B906}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{E9274659-B65D-443F-8AB5-54FCD2A1B906}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9274659-B65D-443F-8AB5-54FCD2A1B906}.Release|x64.ActiveCfg = Release|Any CPU
+		{E9274659-B65D-443F-8AB5-54FCD2A1B906}.Release|x86.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6C0A87D4-F3F1-4333-A40C-F06D1DC4DD9B}
+	EndGlobalSection
+EndGlobal
