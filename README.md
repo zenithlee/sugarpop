@@ -15,3 +15,5 @@ Open Source obviously
 ## Known Issues
 Integrated browser does not have all video codecs, some Live Streams may not display  
 Workaround: Use Compact mode and use it next to other browser  
+
+![http://bigfun.co.za/pop/art/pewd.JPG]{http://bigfun.co.za/pop/art/pewd.JPG}
