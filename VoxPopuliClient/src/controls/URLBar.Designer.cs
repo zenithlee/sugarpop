@@ -126,31 +126,31 @@
       // 
       // BackButton
       // 
-      this.BackButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(240)))), ((int)(((byte)(254)))));
+      this.BackButton.BackColor = System.Drawing.Color.Transparent;
       this.BackButton.Dock = System.Windows.Forms.DockStyle.Fill;
       this.BackButton.FlatAppearance.BorderSize = 0;
       this.BackButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+      this.BackButton.Image = ((System.Drawing.Image)(resources.GetObject("BackButton.Image")));
       this.BackButton.Location = new System.Drawing.Point(1, 1);
       this.BackButton.Margin = new System.Windows.Forms.Padding(1);
       this.BackButton.Name = "BackButton";
       this.BackButton.Size = new System.Drawing.Size(30, 30);
       this.BackButton.TabIndex = 4;
-      this.BackButton.Text = "<-";
       this.BackButton.UseVisualStyleBackColor = false;
       this.BackButton.Click += new System.EventHandler(this.BackButton_Click);
       // 
       // FwdButton
       // 
-      this.FwdButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(240)))), ((int)(((byte)(254)))));
+      this.FwdButton.BackColor = System.Drawing.Color.Transparent;
       this.FwdButton.Dock = System.Windows.Forms.DockStyle.Fill;
       this.FwdButton.FlatAppearance.BorderSize = 0;
       this.FwdButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+      this.FwdButton.Image = ((System.Drawing.Image)(resources.GetObject("FwdButton.Image")));
       this.FwdButton.Location = new System.Drawing.Point(33, 1);
       this.FwdButton.Margin = new System.Windows.Forms.Padding(1);
       this.FwdButton.Name = "FwdButton";
       this.FwdButton.Size = new System.Drawing.Size(30, 30);
       this.FwdButton.TabIndex = 5;
-      this.FwdButton.Text = "->";
       this.FwdButton.UseVisualStyleBackColor = false;
       this.FwdButton.Click += new System.EventHandler(this.FwdButton_Click);
       // 
@@ -158,7 +158,7 @@
       // 
       this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
       this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-      this.imageList1.Images.SetKeyName(0, "star32.png");
+      this.imageList1.Images.SetKeyName(0, "fave_24.png");
       // 
       // contextMenuStrip1
       // 

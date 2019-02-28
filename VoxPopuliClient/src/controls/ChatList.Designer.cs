@@ -89,7 +89,7 @@
       // 
       this.IconList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("IconList.ImageStream")));
       this.IconList.TransparentColor = System.Drawing.Color.Transparent;
-      this.IconList.Images.SetKeyName(0, "voice.ico");
+      this.IconList.Images.SetKeyName(0, "man24.png");
       // 
       // timer1
       // 

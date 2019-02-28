@@ -33,11 +33,11 @@
       this.statusStrip1 = new System.Windows.Forms.StatusStrip();
       this.StatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
       this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+      this.urlBar1 = new VoxPopuliClient.src.controls.URLBar();
       this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
       this.CompactModeButton = new System.Windows.Forms.Button();
       this.SettingsButton = new System.Windows.Forms.Button();
       this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-      this.urlBar1 = new VoxPopuliClient.src.controls.URLBar();
       this.browserControl1 = new VoxPopuliClient.src.controls.BrowserControl();
       this.chatList1 = new VoxPopuliClient.src.controls.ChatList();
       this.tableLayoutPanel1.SuspendLayout();
@@ -101,6 +101,15 @@
       this.tableLayoutPanel2.Size = new System.Drawing.Size(1055, 68);
       this.tableLayoutPanel2.TabIndex = 5;
       // 
+      // urlBar1
+      // 
+      this.urlBar1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+      this.urlBar1.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.urlBar1.Location = new System.Drawing.Point(3, 3);
+      this.urlBar1.Name = "urlBar1";
+      this.urlBar1.Size = new System.Drawing.Size(1017, 62);
+      this.urlBar1.TabIndex = 3;
+      // 
       // tableLayoutPanel3
       // 
       this.tableLayoutPanel3.ColumnCount = 1;
@@ -126,7 +135,7 @@
       this.CompactModeButton.Location = new System.Drawing.Point(1, 1);
       this.CompactModeButton.Margin = new System.Windows.Forms.Padding(1);
       this.CompactModeButton.Name = "CompactModeButton";
-      this.CompactModeButton.Size = new System.Drawing.Size(33, 31);
+      this.CompactModeButton.Size = new System.Drawing.Size(28, 31);
       this.CompactModeButton.TabIndex = 5;
       this.CompactModeButton.UseVisualStyleBackColor = true;
       this.CompactModeButton.Click += new System.EventHandler(this.CompactModeButton_Click);
@@ -140,7 +149,7 @@
       this.SettingsButton.Location = new System.Drawing.Point(1, 34);
       this.SettingsButton.Margin = new System.Windows.Forms.Padding(1);
       this.SettingsButton.Name = "SettingsButton";
-      this.SettingsButton.Size = new System.Drawing.Size(33, 31);
+      this.SettingsButton.Size = new System.Drawing.Size(28, 31);
       this.SettingsButton.TabIndex = 4;
       this.SettingsButton.UseVisualStyleBackColor = true;
       this.SettingsButton.Click += new System.EventHandler(this.SettingsButton_Click);
@@ -165,15 +174,6 @@
       this.splitContainer1.Size = new System.Drawing.Size(1059, 520);
       this.splitContainer1.SplitterDistance = 700;
       this.splitContainer1.TabIndex = 2;
-      // 
-      // urlBar1
-      // 
-      this.urlBar1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-      this.urlBar1.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.urlBar1.Location = new System.Drawing.Point(3, 3);
-      this.urlBar1.Name = "urlBar1";
-      this.urlBar1.Size = new System.Drawing.Size(1017, 62);
-      this.urlBar1.TabIndex = 3;
       // 
       // browserControl1
       // 
@@ -203,7 +203,7 @@
       this.Controls.Add(this.tableLayoutPanel1);
       this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
       this.Name = "PopForm";
-      this.Text = "SUGARPOP - VOX POPULI - YOUR VOICE, ANYWHERE";
+      this.Text = "SugarPop - Social Browsing";
       this.Load += new System.EventHandler(this.PopForm_Load);
       this.Shown += new System.EventHandler(this.PopForm_Shown);
       this.tableLayoutPanel1.ResumeLayout(false);

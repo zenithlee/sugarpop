@@ -26,6 +26,12 @@ namespace VoxPopuliClient.src.controls
     {
       InitializeComponent();
       EventBus.ChatResponseHandler += EventBus_ChatResponseHandler;
+      EventBus.BrowseCompleteHandler += EventBus_BrowseCompleteHandler;
+    }
+
+    private void EventBus_BrowseCompleteHandler(object sender, TextEvent e)
+    {
+      RefreshContent();
     }
 
     public void Setup()
@@ -33,7 +39,7 @@ namespace VoxPopuliClient.src.controls
       if (!Globals.IsInDesignMode())
       {
         timer1.Start();
-        RefreshContent();
+        //RefreshContent();
       }
     }
 

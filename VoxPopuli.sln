@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VoxPopuliClient", "VoxPopul
 EndProject
 Project("{A0786B88-2ADB-4C21-ABE8-AA2D79766269}") = "VoxPopServer", "VoxPopServer\VoxPopServer.phpproj", "{E9274659-B65D-443F-8AB5-54FCD2A1B906}"
 EndProject
+Project("{A0786B88-2ADB-4C21-ABE8-AA2D79766269}") = "SugarPop_Extensions", "SugarPop_Extensions\SugarPop_Extensions.phpproj", "{75B0E4E1-4343-45C4-AA5A-A1F736E0C728}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,12 @@ Global
 		{E9274659-B65D-443F-8AB5-54FCD2A1B906}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E9274659-B65D-443F-8AB5-54FCD2A1B906}.Release|x64.ActiveCfg = Release|Any CPU
 		{E9274659-B65D-443F-8AB5-54FCD2A1B906}.Release|x86.ActiveCfg = Release|Any CPU
+		{75B0E4E1-4343-45C4-AA5A-A1F736E0C728}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75B0E4E1-4343-45C4-AA5A-A1F736E0C728}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{75B0E4E1-4343-45C4-AA5A-A1F736E0C728}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{75B0E4E1-4343-45C4-AA5A-A1F736E0C728}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75B0E4E1-4343-45C4-AA5A-A1F736E0C728}.Release|x64.ActiveCfg = Release|Any CPU
+		{75B0E4E1-4343-45C4-AA5A-A1F736E0C728}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

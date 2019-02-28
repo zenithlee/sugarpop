@@ -1,7 +1,8 @@
 .vs
-*/obj/
-packages
 Deploy
+**/obj
+packages
 VoxPopServer
 Marketing
+SugarPop_Extensions
 art

@@ -11,6 +11,7 @@ namespace VoxPopuliClient.events
   {
     public static event EventHandler<TextEvent> URLChangedHandler;
     public static event EventHandler<TextEvent> BrowseToHandler;
+    public static event EventHandler<TextEvent> BrowseCompleteHandler;
     public static event EventHandler<ChatEvent> ChatResponseHandler;
     public static event EventHandler<TextEvent> StatusHandler;
     public static event EventHandler<TextEvent> NavigateBackHandler;
@@ -35,6 +36,10 @@ namespace VoxPopuliClient.events
       ChatResponseHandler?.Invoke(null, new ChatEvent(ci));
     }
 
+    public static void BrowseComplete(string sURL)
+    {
+      BrowseCompleteHandler?.Invoke(null, new TextEvent(sURL));
+    }
     public static void BrowseTo(string sURL)
     {
       BrowseToHandler?.Invoke(null, new TextEvent(sURL));

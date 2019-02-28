@@ -67,11 +67,13 @@ namespace VoxPopuliClient.src.controls
         b.Text = "";
         b.ImageList = imageList1;
         b.ImageIndex = 0;
+        b.AutoSize = true;
         b.FlatStyle = FlatStyle.Flat;
         b.ImageAlign = ContentAlignment.MiddleLeft;
         b.TextImageRelation = TextImageRelation.ImageBeforeText;
         b.FlatAppearance.BorderSize = 0;
         b.Margin = new Padding(0);
+        b.Height = flowLayoutPanel1.Height;
         b.Text = f.Title;
         b.Tag = f;
         b.Click += B_Click;
@@ -123,6 +125,7 @@ namespace VoxPopuliClient.src.controls
     {
       Favorite f = new Favorite();
       f.URL = Globals.CurrentURL;
+      f.Title = Globals.CurrentTitle;
       Favorites.Add(f);
       SaveFavorites();
       PopulateFavorites();

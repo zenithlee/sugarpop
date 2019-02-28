@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using VoxPopuliClient.events;
+using System.Reflection;
 
 namespace VoxPopuliClient.src.controls
 {
@@ -19,8 +20,6 @@ namespace VoxPopuliClient.src.controls
       EventBus.BrowseToHandler += EventBus_BrowseToHandler;
       EventBus.NavigateBackHandler += EventBus_NavigateBackHandler;
       EventBus.NavigateForwardHandler += EventBus_NavigateForwardHandler;
-
-     
     }
 
     private void EventBus_NavigateForwardHandler(object sender, TextEvent e)
@@ -31,6 +30,13 @@ namespace VoxPopuliClient.src.controls
     private void EventBus_NavigateBackHandler(object sender, TextEvent e)
     {
       webBrowser1.GoBack();
+    }
+
+    //tries to find a title for the current page
+    void FindTitle()
+    {
+      string Title = webBrowser1.Document.Title;
+      Globals.CurrentTitle = Title;
     }
 
     private void EventBus_BrowseToHandler(object sender, TextEvent e)
@@ -80,6 +86,9 @@ namespace VoxPopuliClient.src.controls
 
       this.webBrowser1.Document.Body.MouseDown -= Body_MouseDown;
       this.webBrowser1.Document.Body.MouseDown += Body_MouseDown;
+      EventBus.BrowseComplete(webBrowser1.Url.AbsoluteUri);
+
+      FindTitle();
     }
 
     private void Body_MouseDown(object sender, HtmlElementEventArgs e)

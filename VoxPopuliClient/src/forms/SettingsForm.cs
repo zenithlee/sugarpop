@@ -22,6 +22,7 @@ namespace VoxPopuliClient.src.controls
       {
         ServerText.Text = Globals.settings.ServerURL;
         StartCompactCheck.Checked = Globals.settings.StartInCompactMode;
+        ScreenNameBox.Text = Globals.settings.ScreenName;
       }
     }
 
@@ -29,6 +30,7 @@ namespace VoxPopuliClient.src.controls
     {
       Globals.settings.ServerURL = ServerText.Text;
       Globals.settings.StartInCompactMode = StartCompactCheck.Checked;
+      Globals.settings.ScreenName = ScreenNameBox.Text;
       Globals.settings.Save();
       Close();
     }

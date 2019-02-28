@@ -31,15 +31,15 @@ namespace VoxPopuliClient.src.controls
 
     void SendComment()
     {
-      if (string.IsNullOrEmpty(UserNameBox.Text))
+      if (string.IsNullOrEmpty(Globals.settings.ScreenName))
       {
-        UserNameBox.Text = "Anon";
+        Globals.settings.ScreenName = "Anon";
       }
 
       ChatItem chat = new ChatItem()
       {
         Text = CommentBox.Text,
-        UserID = UserNameBox.Text,
+        UserID = Globals.settings.ScreenName,
         time = DateTime.Now.ToUniversalTime(),
         Attachments = ""
       };
@@ -60,9 +60,7 @@ namespace VoxPopuliClient.src.controls
       else
       {
         CommentBox.Text = "";
-      }
-
-     
+      }     
     }
 
     private void CommentButton_Click(object sender, EventArgs e)

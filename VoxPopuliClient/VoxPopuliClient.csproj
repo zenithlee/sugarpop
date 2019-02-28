@@ -54,9 +54,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>voice.ico</ApplicationIcon>
+    <ApplicationIcon>talk.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Accessibility" />
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -90,6 +91,12 @@
     <Compile Include="src\controls\BrowserControl.Designer.cs">
       <DependentUpon>BrowserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="src\controls\BrowserSyncControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="src\controls\BrowserSyncControl.Designer.cs">
+      <DependentUpon>BrowserSyncControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="src\controls\ChatControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -109,6 +116,12 @@
       <DependentUpon>ChromiumBrowserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="src\controls\ListViewItemEx.cs" />
+    <Compile Include="src\forms\MacMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\forms\MacMain.Designer.cs">
+      <DependentUpon>MacMain.cs</DependentUpon>
+    </Compile>
     <Compile Include="src\forms\SettingsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,6 +146,7 @@
     <Compile Include="src\Globals.cs" />
     <Compile Include="src\models\ChatItem.cs" />
     <Compile Include="src\models\Favorite.cs" />
+    <Compile Include="src\services\BrowserSync.cs" />
     <Compile Include="src\Settings.cs" />
     <EmbeddedResource Include="PopForm.resx">
       <DependentUpon>PopForm.cs</DependentUpon>
@@ -149,6 +163,9 @@
     <EmbeddedResource Include="src\controls\BrowserControl.resx">
       <DependentUpon>BrowserControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="src\controls\BrowserSyncControl.resx">
+      <DependentUpon>BrowserSyncControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="src\controls\ChatControl.resx">
       <DependentUpon>ChatControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -157,6 +174,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="src\controls\ChromiumBrowserControl.resx">
       <DependentUpon>ChromiumBrowserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\forms\MacMain.resx">
+      <DependentUpon>MacMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="src\forms\SettingsForm.resx">
       <DependentUpon>SettingsForm.cs</DependentUpon>
@@ -182,6 +202,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="talk.ico" />
     <Content Include="voice.ico" />
   </ItemGroup>
   <ItemGroup>
@@ -195,6 +216,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="src\windows\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

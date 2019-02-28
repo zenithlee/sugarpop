@@ -10,6 +10,8 @@ namespace VoxPopuliClient.src
   public class Globals
   {    
     public static Settings settings;
+
+    public static string CurrentTitle = "";
     public static string CurrentURL = "http://bigfun.co.za/pop/?version=0.21";
     public static string UserName = "Anon";
 
