@@ -19,3 +19,6 @@ Integrated browser does not have all video codecs, some Live Streams may not dis
 Workaround: Use Compact mode and use it next to other browser  
 
 ![http://bigfun.co.za/pop/art/pewd.JPG](http://bigfun.co.za/pop/art/pewd.JPG)
+
+## License
+You are free to make new front-ends for the SugarPop network, provided credit to BigFun.co.za is clearly displayed.
