@@ -10,9 +10,8 @@ namespace VoxPopuliClient.src
 {
   public class Settings
   {
+    private string gUID = "";
     private static string SettingsFile = "settings.dat";
-
-
     private string screenName = "Anon";
     private bool startInCompactMode = false;
     private string serverMessage = "";
@@ -22,6 +21,7 @@ namespace VoxPopuliClient.src
     public string ServerMessage { get => serverMessage; set => serverMessage = value; }
     public bool StartInCompactMode { get => startInCompactMode; set => startInCompactMode = value; }
     public string ScreenName { get => screenName; set => screenName = value; }
+    public string GUID { get => gUID; set => gUID = value; }
 
     public static Settings Load()
     {
@@ -40,11 +40,23 @@ namespace VoxPopuliClient.src
         string sData = File.ReadAllText(Path.Combine("data", SettingsFile));
         settings = JsonConvert.DeserializeObject<Settings>(sData);
       }
+
+      if (string.IsNullOrEmpty(settings.GUID))
+      {
+        settings.GUID = Guid.NewGuid().ToString();
+        settings.Save();
+      }
+
       return settings;
     }
 
     public void Save()
     {
+      if (string.IsNullOrEmpty(GUID))
+      {
+        GUID = Guid.NewGuid().ToString();
+      }
+
       if (!Directory.Exists("data"))
       {
         Directory.CreateDirectory("data");

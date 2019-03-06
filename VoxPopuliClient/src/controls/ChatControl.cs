@@ -88,8 +88,9 @@ namespace VoxPopuliClient.src.controls
 
     private void GetTrendsButton_Click(object sender, EventArgs e)
     {
-      TrendsForm tf = new TrendsForm();
-      tf.Show(this);
+      //TrendsForm tf = new TrendsForm();
+      //tf.Show(this);
+      EventBus.RequestTrends(true);
     }
   }
 }

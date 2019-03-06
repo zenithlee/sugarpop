@@ -173,5 +173,10 @@ namespace VoxPopuliClient.src.controls
     {
       EventBus.NavigateForward("Forward");
     }
+
+    private void UpVote_Click(object sender, EventArgs e)
+    {
+
+    }
   }
 }

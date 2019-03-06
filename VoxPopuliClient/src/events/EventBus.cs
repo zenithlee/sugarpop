@@ -17,6 +17,13 @@ namespace VoxPopuliClient.events
     public static event EventHandler<TextEvent> NavigateBackHandler;
     public static event EventHandler<TextEvent> NavigateForwardHandler;
 
+    public static event EventHandler<TrendRequestEvent> TrendRequest;
+
+    public static void RequestTrends(bool show)
+    {
+      TrendRequest?.Invoke(null, new TrendRequestEvent(show));
+    }
+
     public static void NavigateBack(string s)
     {
       NavigateBackHandler?.Invoke(null, new TextEvent(""));
@@ -47,6 +54,7 @@ namespace VoxPopuliClient.events
 
     public static void Stats(string s)
     {
+      Console.WriteLine(s);
       StatusHandler?.Invoke(null, new TextEvent(s));
     }
   }

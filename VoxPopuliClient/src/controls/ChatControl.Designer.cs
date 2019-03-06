@@ -28,12 +28,15 @@
     /// </summary>
     private void InitializeComponent()
     {
+      this.components = new System.ComponentModel.Container();
       System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChatControl));
       this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
       this.CommentBox = new System.Windows.Forms.RichTextBox();
       this.CommentButton = new System.Windows.Forms.Button();
       this.TextCounter = new System.Windows.Forms.Label();
       this.GetTrendsButton = new System.Windows.Forms.Button();
+      this.timer1 = new System.Windows.Forms.Timer(this.components);
+      this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
       this.tableLayoutPanel1.SuspendLayout();
       this.SuspendLayout();
       // 
@@ -89,6 +92,7 @@
       this.CommentButton.TabIndex = 1;
       this.CommentButton.Text = "Comment";
       this.CommentButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+      this.toolTip1.SetToolTip(this.CommentButton, "Comment on the current page");
       this.CommentButton.UseVisualStyleBackColor = false;
       this.CommentButton.Click += new System.EventHandler(this.CommentButton_Click);
       // 
@@ -118,6 +122,7 @@
       this.GetTrendsButton.TabIndex = 5;
       this.GetTrendsButton.Text = "Trends";
       this.GetTrendsButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+      this.toolTip1.SetToolTip(this.GetTrendsButton, "Pop Out a list of Trends where people are talking");
       this.GetTrendsButton.UseVisualStyleBackColor = false;
       this.GetTrendsButton.Click += new System.EventHandler(this.GetTrendsButton_Click);
       // 
@@ -141,5 +146,7 @@
     private System.Windows.Forms.Button CommentButton;
     private System.Windows.Forms.Label TextCounter;
     private System.Windows.Forms.Button GetTrendsButton;
+    private System.Windows.Forms.Timer timer1;
+    private System.Windows.Forms.ToolTip toolTip1;
   }
 }

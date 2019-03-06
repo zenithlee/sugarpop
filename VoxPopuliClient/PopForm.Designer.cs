@@ -39,6 +39,9 @@
       this.SettingsButton = new System.Windows.Forms.Button();
       this.splitContainer1 = new System.Windows.Forms.SplitContainer();
       this.browserControl1 = new VoxPopuliClient.src.controls.BrowserControl();
+      this.splitter1 = new System.Windows.Forms.Splitter();
+      this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+      this.trendsControl1 = new VoxPopuliClient.src.controls.TrendsControl();
       this.chatList1 = new VoxPopuliClient.src.controls.ChatList();
       this.tableLayoutPanel1.SuspendLayout();
       this.statusStrip1.SuspendLayout();
@@ -48,6 +51,10 @@
       this.splitContainer1.Panel1.SuspendLayout();
       this.splitContainer1.Panel2.SuspendLayout();
       this.splitContainer1.SuspendLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
+      this.splitContainer2.Panel1.SuspendLayout();
+      this.splitContainer2.Panel2.SuspendLayout();
+      this.splitContainer2.SuspendLayout();
       this.SuspendLayout();
       // 
       // tableLayoutPanel1
@@ -61,10 +68,10 @@
       this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
       this.tableLayoutPanel1.Name = "tableLayoutPanel1";
       this.tableLayoutPanel1.RowCount = 3;
-      this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 74F));
+      this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 81F));
       this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
       this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-      this.tableLayoutPanel1.Size = new System.Drawing.Size(1061, 628);
+      this.tableLayoutPanel1.Size = new System.Drawing.Size(1226, 743);
       this.tableLayoutPanel1.TabIndex = 0;
       // 
       // statusStrip1
@@ -72,9 +79,9 @@
       this.statusStrip1.Dock = System.Windows.Forms.DockStyle.Fill;
       this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.StatusLabel});
-      this.statusStrip1.Location = new System.Drawing.Point(0, 596);
+      this.statusStrip1.Location = new System.Drawing.Point(0, 711);
       this.statusStrip1.Name = "statusStrip1";
-      this.statusStrip1.Size = new System.Drawing.Size(1061, 32);
+      this.statusStrip1.Size = new System.Drawing.Size(1226, 32);
       this.statusStrip1.TabIndex = 4;
       this.statusStrip1.Text = "statusStrip1";
       // 
@@ -98,7 +105,7 @@
       this.tableLayoutPanel2.Name = "tableLayoutPanel2";
       this.tableLayoutPanel2.RowCount = 1;
       this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-      this.tableLayoutPanel2.Size = new System.Drawing.Size(1055, 68);
+      this.tableLayoutPanel2.Size = new System.Drawing.Size(1220, 75);
       this.tableLayoutPanel2.TabIndex = 5;
       // 
       // urlBar1
@@ -107,7 +114,7 @@
       this.urlBar1.Dock = System.Windows.Forms.DockStyle.Fill;
       this.urlBar1.Location = new System.Drawing.Point(3, 3);
       this.urlBar1.Name = "urlBar1";
-      this.urlBar1.Size = new System.Drawing.Size(1017, 62);
+      this.urlBar1.Size = new System.Drawing.Size(1182, 69);
       this.urlBar1.TabIndex = 3;
       // 
       // tableLayoutPanel3
@@ -117,13 +124,13 @@
       this.tableLayoutPanel3.Controls.Add(this.CompactModeButton, 0, 0);
       this.tableLayoutPanel3.Controls.Add(this.SettingsButton, 0, 1);
       this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.tableLayoutPanel3.Location = new System.Drawing.Point(1024, 1);
+      this.tableLayoutPanel3.Location = new System.Drawing.Point(1189, 1);
       this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(1);
       this.tableLayoutPanel3.Name = "tableLayoutPanel3";
       this.tableLayoutPanel3.RowCount = 2;
       this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
       this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-      this.tableLayoutPanel3.Size = new System.Drawing.Size(30, 66);
+      this.tableLayoutPanel3.Size = new System.Drawing.Size(30, 73);
       this.tableLayoutPanel3.TabIndex = 6;
       // 
       // CompactModeButton
@@ -135,7 +142,7 @@
       this.CompactModeButton.Location = new System.Drawing.Point(1, 1);
       this.CompactModeButton.Margin = new System.Windows.Forms.Padding(1);
       this.CompactModeButton.Name = "CompactModeButton";
-      this.CompactModeButton.Size = new System.Drawing.Size(28, 31);
+      this.CompactModeButton.Size = new System.Drawing.Size(28, 34);
       this.CompactModeButton.TabIndex = 5;
       this.CompactModeButton.UseVisualStyleBackColor = true;
       this.CompactModeButton.Click += new System.EventHandler(this.CompactModeButton_Click);
@@ -146,10 +153,10 @@
       this.SettingsButton.FlatAppearance.BorderSize = 0;
       this.SettingsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
       this.SettingsButton.Image = ((System.Drawing.Image)(resources.GetObject("SettingsButton.Image")));
-      this.SettingsButton.Location = new System.Drawing.Point(1, 34);
+      this.SettingsButton.Location = new System.Drawing.Point(1, 37);
       this.SettingsButton.Margin = new System.Windows.Forms.Padding(1);
       this.SettingsButton.Name = "SettingsButton";
-      this.SettingsButton.Size = new System.Drawing.Size(28, 31);
+      this.SettingsButton.Size = new System.Drawing.Size(28, 35);
       this.SettingsButton.TabIndex = 4;
       this.SettingsButton.UseVisualStyleBackColor = true;
       this.SettingsButton.Click += new System.EventHandler(this.SettingsButton_Click);
@@ -159,51 +166,84 @@
       this.splitContainer1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
       this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
       this.splitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
-      this.splitContainer1.Location = new System.Drawing.Point(1, 75);
+      this.splitContainer1.Location = new System.Drawing.Point(1, 82);
       this.splitContainer1.Margin = new System.Windows.Forms.Padding(1);
       this.splitContainer1.Name = "splitContainer1";
       // 
       // splitContainer1.Panel1
       // 
       this.splitContainer1.Panel1.Controls.Add(this.browserControl1);
+      this.splitContainer1.Panel1.Controls.Add(this.splitter1);
       // 
       // splitContainer1.Panel2
       // 
       this.splitContainer1.Panel2.BackColor = System.Drawing.Color.Transparent;
-      this.splitContainer1.Panel2.Controls.Add(this.chatList1);
-      this.splitContainer1.Size = new System.Drawing.Size(1059, 520);
-      this.splitContainer1.SplitterDistance = 700;
+      this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
+      this.splitContainer1.Size = new System.Drawing.Size(1224, 628);
+      this.splitContainer1.SplitterDistance = 865;
       this.splitContainer1.TabIndex = 2;
       // 
       // browserControl1
       // 
       this.browserControl1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
       this.browserControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.browserControl1.Location = new System.Drawing.Point(0, 0);
+      this.browserControl1.Location = new System.Drawing.Point(3, 0);
       this.browserControl1.Name = "browserControl1";
-      this.browserControl1.Size = new System.Drawing.Size(700, 520);
+      this.browserControl1.Size = new System.Drawing.Size(862, 628);
       this.browserControl1.TabIndex = 1;
+      // 
+      // splitter1
+      // 
+      this.splitter1.Location = new System.Drawing.Point(0, 0);
+      this.splitter1.Name = "splitter1";
+      this.splitter1.Size = new System.Drawing.Size(3, 628);
+      this.splitter1.TabIndex = 0;
+      this.splitter1.TabStop = false;
+      // 
+      // splitContainer2
+      // 
+      this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.splitContainer2.Location = new System.Drawing.Point(0, 0);
+      this.splitContainer2.Name = "splitContainer2";
+      // 
+      // splitContainer2.Panel1
+      // 
+      this.splitContainer2.Panel1.Controls.Add(this.trendsControl1);
+      this.splitContainer2.Panel1Collapsed = true;
+      // 
+      // splitContainer2.Panel2
+      // 
+      this.splitContainer2.Panel2.Controls.Add(this.chatList1);
+      this.splitContainer2.Size = new System.Drawing.Size(355, 628);
+      this.splitContainer2.SplitterDistance = 118;
+      this.splitContainer2.TabIndex = 0;
+      // 
+      // trendsControl1
+      // 
+      this.trendsControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.trendsControl1.Location = new System.Drawing.Point(0, 0);
+      this.trendsControl1.Name = "trendsControl1";
+      this.trendsControl1.Size = new System.Drawing.Size(118, 100);
+      this.trendsControl1.TabIndex = 0;
       // 
       // chatList1
       // 
       this.chatList1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-      this.chatList1.BackColor = System.Drawing.Color.Transparent;
       this.chatList1.Dock = System.Windows.Forms.DockStyle.Fill;
       this.chatList1.Location = new System.Drawing.Point(0, 0);
-      this.chatList1.Margin = new System.Windows.Forms.Padding(1);
       this.chatList1.Name = "chatList1";
-      this.chatList1.Size = new System.Drawing.Size(355, 520);
+      this.chatList1.Size = new System.Drawing.Size(355, 628);
       this.chatList1.TabIndex = 0;
       // 
       // PopForm
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.ClientSize = new System.Drawing.Size(1061, 628);
+      this.ClientSize = new System.Drawing.Size(1226, 743);
       this.Controls.Add(this.tableLayoutPanel1);
       this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
       this.Name = "PopForm";
-      this.Text = "SugarPop - Social Browsing";
+      this.Text = "SugarPop - Social Browsing - bigfun.co.za";
       this.Load += new System.EventHandler(this.PopForm_Load);
       this.Shown += new System.EventHandler(this.PopForm_Shown);
       this.tableLayoutPanel1.ResumeLayout(false);
@@ -216,6 +256,10 @@
       this.splitContainer1.Panel2.ResumeLayout(false);
       ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
       this.splitContainer1.ResumeLayout(false);
+      this.splitContainer2.Panel1.ResumeLayout(false);
+      this.splitContainer2.Panel2.ResumeLayout(false);
+      ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
+      this.splitContainer2.ResumeLayout(false);
       this.ResumeLayout(false);
 
     }
@@ -223,16 +267,19 @@
     #endregion
 
     private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-    private System.Windows.Forms.SplitContainer splitContainer1;
     private src.controls.URLBar urlBar1;
     private System.Windows.Forms.StatusStrip statusStrip1;
     private System.Windows.Forms.ToolStripStatusLabel StatusLabel;
     private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
     private System.Windows.Forms.Button SettingsButton;    
-    private src.controls.BrowserControl browserControl1;
     private System.Windows.Forms.Button CompactModeButton;
-    private src.controls.ChatList chatList1;
     private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+    private System.Windows.Forms.SplitContainer splitContainer1;
+    private System.Windows.Forms.Splitter splitter1;
+    private src.controls.BrowserControl browserControl1;
+    private System.Windows.Forms.SplitContainer splitContainer2;
+    private src.controls.TrendsControl trendsControl1;
+    private src.controls.ChatList chatList1;
   }
 }
 

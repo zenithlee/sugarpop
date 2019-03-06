@@ -189,7 +189,7 @@ namespace VoxPopuliClient.src.controls
         foreach ( ChatItem o in ChatListing.SelectedItems)
         {
           if (o == null) continue;
-          sReplyTo += o.UserID + ",";
+          sReplyTo += "> "+o.UserID + "," + o.Text + "\n";
         }
       }
       chatControl1.Insert(sReplyTo);
