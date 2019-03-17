@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using VoxPopuliClient.src.services;
+using VoxPopuliClient.services;
 
 namespace VoxPopuliClient.src.controls
 {

@@ -24,11 +24,13 @@ namespace VoxPopuliClient.src.controls
 
     private void EventBus_NavigateForwardHandler(object sender, TextEvent e)
     {
+      if (Globals.InCompactMode == true) return;
       webBrowser1.GoForward();
     }
 
     private void EventBus_NavigateBackHandler(object sender, TextEvent e)
     {
+      if (Globals.InCompactMode == true) return;
       webBrowser1.GoBack();
     }
 
@@ -41,15 +43,36 @@ namespace VoxPopuliClient.src.controls
 
     private void EventBus_BrowseToHandler(object sender, TextEvent e)
     {
-      Enabled = false; //prevent browser from stealing focus    
+      if (Globals.InCompactMode == true) return;
+      /// Enabled = false; //prevent browser from stealing focus    
       try
       {
-        webBrowser1.Url = new Uri(e.Text);
+        string url = e.Text;
+        if (url.Contains("youtube"))
+        {
+          if (url.Contains("?"))
+          {
+            url += "&html5=1";
+          }
+          else
+          {
+            url += "?html5=1";
+          }
+
+        }
+
+        webBrowser1.Url = new Uri(url);
       }
       catch (Exception ex)
       {
         EventBus.Stats(ex.Message);
       }
+    }
+
+
+    void Download(string URL)
+    {
+
     }
 
     private void webBrowser1_Navigating(object sender, WebBrowserNavigatingEventArgs e)
@@ -81,13 +104,13 @@ namespace VoxPopuliClient.src.controls
 
     private void webBrowser1_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
     {
-      Enabled = true;
+      ///Enabled = true;
       webBrowser1.ScriptErrorsSuppressed = true;
 
       this.webBrowser1.Document.Body.MouseDown -= Body_MouseDown;
       this.webBrowser1.Document.Body.MouseDown += Body_MouseDown;
       EventBus.BrowseComplete(webBrowser1.Url.AbsoluteUri);
-
+      EventBus.Stats("Loaded:" + e.Url);
       FindTitle();
     }
 

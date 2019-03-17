@@ -8,9 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using VoxPopuliClient.events;
+using VoxPopuliClient.models;
+using VoxPopuliClient.services;
 using VoxPopuliClient.src.controls;
 
-namespace VoxPopuliClient.src.forms
+namespace VoxPopuliClient.forms
 {
   public partial class MacMain : Form
   {
@@ -23,18 +25,36 @@ namespace VoxPopuliClient.src.forms
     {
       InitializeComponent();
       EventBus.StatusHandler += EventBus_StatusHandler;
+      EventBus.BrowseToHandler += EventBus_BrowseToHandler; 
     }
+
+    private void EventBus_BrowseToHandler(object sender, TextEvent e)
+    {
+      //just pass through browsing as we don't have an integrated browser
+      Globals.CurrentURL = e.Text;
+      EventBus.BrowseComplete(e.Text);
+      EventBus.URLChanged(e.Text);
+      BrowserSync.BrowseTo(e.Text);
+    }
+
     void Setup()
     {
       if (!Globals.IsInDesignMode())
       {
         Globals.settings = Settings.Load();
-        CompactMode = Globals.settings.StartInCompactMode;
+        Channels.GetInstance(); //populate channels
+        Globals.InCompactMode = Globals.settings.StartInCompactMode;
         urlBar1.Setup();
         BrowserOptions bo = new BrowserOptions();
         EventBus.BrowseTo(Globals.CurrentURL);
         chatList1.Setup();
         SwitchCompactMode();
+        EventBus.RequestTrends(true);
+        EventBus.Stats("Welcome to SugarPop. Commenting as: " + Globals.settings.ScreenName);
+        if (Globals.settings.StayOnTop == true)
+        {
+          this.TopMost = true;
+        }
       }
     }
 

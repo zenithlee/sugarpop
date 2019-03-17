@@ -22,11 +22,28 @@ namespace VoxPopuliClient.src.controls
     public ChatControl()
     {
       InitializeComponent();
+
+      EventBus.ChannelChangedHandler += EventBus_ChannelChangedHandler;
+      UpdateDescription();
+      ChannelCombo.Items.Clear();
+      ChannelCombo.Items.AddRange(Channels.GetInstance().GetList());
+    }
+
+    private void EventBus_ChannelChangedHandler(object sender, TextEvent e)
+    {
+      UpdateDescription();      
     }
 
     public void Insert(string s)
     {
       CommentBox.Text = s + CommentBox.Text;
+    }
+
+    void UpdateDescription()
+    {
+      ChatDescr.Text = "Commenting as " + Globals.UserName + " in " + Channels.ChannelCurrent;
+      string desc = Channels.GetInstance().GetDescription(Channels.ChannelCurrent);
+      EventBus.Stats("Channel changed to :" + Channels.ChannelCurrent + " -> " + desc);
     }
 
     void SendComment()
@@ -39,7 +56,9 @@ namespace VoxPopuliClient.src.controls
       ChatItem chat = new ChatItem()
       {
         Text = CommentBox.Text,
+        Channel = ChannelCombo.Text,
         UserID = Globals.settings.ScreenName,
+        UserGUID = Globals.settings.GUID,
         time = DateTime.Now.ToUniversalTime(),
         Attachments = ""
       };
@@ -54,8 +73,9 @@ namespace VoxPopuliClient.src.controls
         + "&url=" + Globals.CurrentURL;
       string Result = Server.Request(sURL);
 
-      if (Result.Contains("ERROR"))
+      if( string.IsNullOrEmpty(Result) || Result.Contains("ERROR"))
       {
+        EventBus.Stats("Error sending message. Try again...");
       }
       else
       {
@@ -75,7 +95,7 @@ namespace VoxPopuliClient.src.controls
 
     private void CommentBox_KeyUp(object sender, KeyEventArgs e)
     {
-      if ( e.KeyCode == Keys.Return)
+      if (( e.KeyCode == Keys.Return) && (e.Shift == false))
       {
         SendComment();
       }
@@ -91,6 +111,11 @@ namespace VoxPopuliClient.src.controls
       //TrendsForm tf = new TrendsForm();
       //tf.Show(this);
       EventBus.RequestTrends(true);
+    }
+
+    private void ChannelCombo_SelectedIndexChanged(object sender, EventArgs e)
+    {
+      EventBus.ChangeChannelRequest(ChannelCombo.Text);      
     }
   }
 }

@@ -4,16 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using VoxPopuliClient.models;
 
-namespace VoxPopuliClient.src
+namespace VoxPopuliClient
 {
   public class Globals
   {
     public static Settings settings;
-
+    
     public static string CurrentTitle = "";
-    public static string CurrentURL = "http://bigfun.co.za/pop/?version=0.24";
+    public static string CurrentURL = "http://bigfun.co.za/pop/?version=0.25";    
     public static string UserName = "Anon";
+    public static bool InCompactMode = false;
 
     public static bool IsInDesignMode()
     {

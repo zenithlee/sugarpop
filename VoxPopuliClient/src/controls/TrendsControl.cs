@@ -18,7 +18,7 @@ using VoxPopuliClient.src.forms;
 namespace VoxPopuliClient.src.controls
 {
   public partial class TrendsControl : UserControl
-  {    
+  {
     Dictionary<string, TrendItem> TrendCache;
     string TrendFile = ".\\data\\trends.json";
 
@@ -143,9 +143,39 @@ namespace VoxPopuliClient.src.controls
         TrendCache.Add(sURL, new TrendItem() { URL = sURL, Description = Desc });
         return Desc;
       }
+      else if (sURL.Contains("rottentomatoes"))
+      {
+        string Results = Server.Request(sURL);
+        string sFilter = @"(<title>)(.+?)(<\/title>)";
+        Regex reg = new Regex(sFilter);
+        string Desc = reg.Match(Results).Value;
+        Desc = Desc.Replace(@"<title>", "");
+        Desc = Desc.Replace(@"</title>", "");
+        Desc = Desc.Replace(@""" />", "");
+        Desc = Desc.Replace(@"""/>", "");
+        TrendCache.Add(sURL, new TrendItem() { URL = sURL, Description = Desc });
+        return Desc;
+      }
       else
       {
-        return sURL;
+        string Results = Server.Request(sURL);
+        string sFilter = @"(<title>)(.+?)(<\/title>)";
+        Regex reg = new Regex(sFilter);
+        if (Results == null) return "";
+        string Desc = reg.Match(Results).Value;
+        Desc = Desc.Replace(@"<title>", "");
+        Desc = Desc.Replace(@"</title>", "");
+        Desc = Desc.Replace(@""" />", "");
+        Desc = Desc.Replace(@"""/>", "");
+        if (string.IsNullOrEmpty(Desc))
+        {
+          return sURL;
+        }
+        else
+        {
+          TrendCache.Add(sURL, new TrendItem() { URL = sURL, Description = Desc });
+          return Desc;
+        }
       }
     }
 
@@ -166,7 +196,7 @@ namespace VoxPopuliClient.src.controls
         string sURL = entry[1];
         ListViewItem lvi = new ListViewItem(sDate);
         lvi.SubItems.Add(new ListViewItem.ListViewSubItem(lvi, sURL));
-        lvi.SubItems.Add(new ListViewItem.ListViewSubItem(lvi, "Downloading Description..."));
+        lvi.SubItems.Add(new ListViewItem.ListViewSubItem(lvi, sURL));
         lvi.Tag = sURL;
         TrendsView.Items.Add(lvi);
       }

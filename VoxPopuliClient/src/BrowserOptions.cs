@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using VoxPopuliClient.events;
 
-namespace VoxPopuliClient.src
+namespace VoxPopuliClient
 {
   class BrowserOptions
   {

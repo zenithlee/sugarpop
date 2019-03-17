@@ -5,11 +5,20 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using VoxPopuliClient.events;
 
-namespace VoxPopuliClient.src.services
+namespace VoxPopuliClient.services
 {
   public class BrowserSync
   {
+    public const string SAFARI = "Safari";
+    public const string FIREFOX = "FireFox";
+    public const string CHROME = "Chrome";
+    public const string CHROMIUM = "Chromium";
+    public const string EDGE = "Edge";
+    public const string INTERNETEXPLORER = "Internet Explorer";
+    public const string INTEGRATED = "Integrated Browser";
+
     private struct WinText
     {
       public IntPtr hWnd;
@@ -29,34 +38,63 @@ namespace VoxPopuliClient.src.services
     public static extern IntPtr FindWindowEx(IntPtr hwndParent, IntPtr hwndChildAfter, string lpszClass, string lpszWindow);
 
 
-
-    public void GetURL()
-    {                   
-        List<WinText> windows = new List<WinText>();
-
-        //find the "first" window
-        IntPtr hWnd = FindWindow("MozillaWindowClass", null);
-
-        while (hWnd != IntPtr.Zero)
+    public static void BrowseTo(string sURL)
+    {
+      if (Globals.InCompactMode == true)
+      {
+        if (Globals.settings.Browser == "FireFox")
         {
-          //find the control window that has the text
-          IntPtr hEdit = FindWindowEx(hWnd, IntPtr.Zero, "edit", null);
-
-          //initialize the buffer.  using a StringBuilder here
-          System.Text.StringBuilder sb = new System.Text.StringBuilder(255);  // or length from call with GETTEXTLENGTH
-
-          //get the text from the child control
-          int RetVal = SendMessage(hEdit, WM_GETTEXT, sb.Capacity, sb);
-
-          windows.Add(new WinText() { hWnd = hWnd, Text = sb.ToString() });
-
-          //find the next window
-          hWnd = FindWindowEx(IntPtr.Zero, hWnd, "MozillaWindowClass", null);
+          try
+          {
+            Process.Start(@"""C:\Program Files (x86)\Mozilla Firefox\firefox.exe""", sURL);
+          }
+          catch (Exception ex)
+          {
+            EventBus.Stats(ex.Message);
+          }
         }
 
-        //do something clever
-        windows.OrderBy(x => x.Text).ToList().ForEach(y => Console.Write("{0} = {1}\n", y.hWnd, y.Text));
-      
+        if (Globals.settings.Browser == BrowserSync.SAFARI)
+        {
+          try
+          {
+            Process.Start(@"/Applications/safari.app/contents/macos/Safari", sURL);
+          }
+          catch (Exception ex)
+          {
+            EventBus.Stats(ex.Message);
+          }
+        }
+      }
+    }
+
+    public void GetURL()
+    {
+      List<WinText> windows = new List<WinText>();
+
+      //find the "first" window
+      IntPtr hWnd = FindWindow("MozillaWindowClass", null);
+
+      while (hWnd != IntPtr.Zero)
+      {
+        //find the control window that has the text
+        IntPtr hEdit = FindWindowEx(hWnd, IntPtr.Zero, "edit", null);
+
+        //initialize the buffer.  using a StringBuilder here
+        System.Text.StringBuilder sb = new System.Text.StringBuilder(255);  // or length from call with GETTEXTLENGTH
+
+        //get the text from the child control
+        int RetVal = SendMessage(hEdit, WM_GETTEXT, sb.Capacity, sb);
+
+        windows.Add(new WinText() { hWnd = hWnd, Text = sb.ToString() });
+
+        //find the next window
+        hWnd = FindWindowEx(IntPtr.Zero, hWnd, "MozillaWindowClass", null);
+      }
+
+      //do something clever
+      windows.OrderBy(x => x.Text).ToList().ForEach(y => Console.Write("{0} = {1}\n", y.hWnd, y.Text));
+
     }
   }
 }

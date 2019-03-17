@@ -55,6 +55,7 @@ namespace VoxPopuliClient.src.controls
 
     void ProcessVote(string s)
     {
+      if (string.IsNullOrEmpty(s)) return;
       string[] parts = s.Split('|');
       if (parts.Length < 2)
       {
@@ -89,9 +90,6 @@ namespace VoxPopuliClient.src.controls
     void GetVote()
     {
       string serl = Globals.settings.ServerURL;
-#if DEBUG
-      serl = "http://localhost:7057/";
-#endif
 
       string sURL = serl
         + "?f=gvt"
@@ -106,7 +104,7 @@ namespace VoxPopuliClient.src.controls
     {
       string serl = Globals.settings.ServerURL;
 #if DEBUG
-      serl = "http://localhost:7057/";
+      //serl = "http://localhost:7057/";
 #endif
 
       string sURL = serl

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VoxPopuliClient.models
+namespace VoxLib
 {
   public class ChatItem
   {

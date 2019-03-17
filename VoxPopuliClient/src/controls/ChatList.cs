@@ -27,6 +27,12 @@ namespace VoxPopuliClient.src.controls
       InitializeComponent();
       EventBus.ChatResponseHandler += EventBus_ChatResponseHandler;
       EventBus.BrowseCompleteHandler += EventBus_BrowseCompleteHandler;
+      EventBus.ChannelChangedHandler += EventBus_ChannelChangedHandler;
+    }
+
+    private void EventBus_ChannelChangedHandler(object sender, TextEvent e)
+    {
+      RefreshContent();
     }
 
     private void EventBus_BrowseCompleteHandler(object sender, TextEvent e)
@@ -48,10 +54,10 @@ namespace VoxPopuliClient.src.controls
       BeginInvoke((MethodInvoker)delegate
      {
        //string s = e.item.UserID + ":" + e.item.Text;       
-       ChatListing.Items.Add(e.item);       
+       ChatListing.Items.Add(e.item);
        ScrollToBottom();
      });
-      
+
     }
 
     void ScrollToBottom()
@@ -70,6 +76,7 @@ namespace VoxPopuliClient.src.controls
       foreach (string item in items)
       {
         if (string.IsNullOrEmpty(item)) continue;
+        
         string[] bits = item.Split('|');
         if (bits.Length > 2)
         {
@@ -81,7 +88,17 @@ namespace VoxPopuliClient.src.controls
             try
             {
               ChatItem ci = JsonConvert.DeserializeObject<ChatItem>(sChatObject);
-              ChatListing.Items.Add(ci);              
+
+              if (Channels.ChannelCurrent == Channels.CHANNEL_WHATEV)
+              {
+
+              }
+              else if (string.Compare(ci.Channel, Channels.ChannelCurrent) != 0)
+              {
+                continue;
+              }
+
+              ChatListing.Items.Add(ci);
               //ListViewItemEx lvi = new ListViewItemEx(ci.UserID + ":" + ci.Text);
               //lvi.ImageKey = "voice.ico";
               //CommentsList.Items.Add(lvi);
@@ -104,7 +121,7 @@ namespace VoxPopuliClient.src.controls
 
     private void ChatList_Load(object sender, EventArgs e)
     {
-     
+
     }
 
     private void ChatListing_DrawItem(object sender, DrawItemEventArgs e)
@@ -113,26 +130,31 @@ namespace VoxPopuliClient.src.controls
       ChatItem ci = (ChatItem)ChatListing.Items[e.Index];
       if (string.IsNullOrEmpty(ci.Text)) return;
       ci.Text = ci.Text.Trim();
-      
+
       e.DrawBackground();
       Image i = IconList.Images[0];
 
       Rectangle r = e.Bounds;
       r.Offset(0, -1);
       r.Inflate(-2, -1);
-      
+
       e.Graphics.FillRectangle(panelbrush, r);
       e.Graphics.DrawRectangle(new Pen(Color.LightGray, 1), r);
-      e.Graphics.DrawImage(i, new Point(e.Bounds.Left+5, e.Bounds.Top+5));
+      e.Graphics.DrawImage(i, new Point(e.Bounds.Left + 5, e.Bounds.Top + 5));
 
       e.Graphics.DrawString(ci.UserID,
         font, textbrush,
         new Rectangle(23, e.Bounds.Top, e.Bounds.Width - 22, e.Bounds.Height),
         StringFormat.GenericDefault);
 
-      e.Graphics.DrawString(ci.UserID + ": " + ci.Text,
+      string sText = ci.Text;
+      if (Channels.ChannelCurrent == Channels.CHANNEL_WHATEV) {
+        sText = "[" + ci.Channel+ "] " + sText;
+      }
+
+      e.Graphics.DrawString(ci.UserID + ": " + sText,
         font, textbrush,
-        new Rectangle(22, e.Bounds.Top, e.Bounds.Width - 22, e.Bounds.Height),                        
+        new Rectangle(22, e.Bounds.Top, e.Bounds.Width - 22, e.Bounds.Height),
         StringFormat.GenericDefault);
 
       //Console.WriteLine(sText);
@@ -140,11 +162,11 @@ namespace VoxPopuliClient.src.controls
 
     private void ChatListing_MeasureItem(object sender, MeasureItemEventArgs e)
     {
-      if (e.Index == -1) return;      
+      if (e.Index == -1) return;
       ChatItem ci = (ChatItem)ChatListing.Items[e.Index];
       if (string.IsNullOrEmpty(ci.Text)) return;
       ci.Text = ci.Text.Trim();
-        Size size = new Size(ChatListing.Width-20, 60);
+      Size size = new Size(ChatListing.Width - 20, 60);
       SizeF resize = e.Graphics.MeasureString(ci.Text, font, size.Width, StringFormat.GenericDefault);
 
       e.ItemHeight = (int)(resize.Height + 16);
@@ -152,7 +174,7 @@ namespace VoxPopuliClient.src.controls
 
     private void ChatListing_KeyDown(object sender, KeyEventArgs e)
     {
-      
+
     }
 
     private void ChatListing_MouseDown(object sender, MouseEventArgs e)
@@ -185,11 +207,11 @@ namespace VoxPopuliClient.src.controls
     {
       string sReplyTo = "Replying to:";
       if (ChatListing.SelectedItems.Count > 0)
-      {        
-        foreach ( ChatItem o in ChatListing.SelectedItems)
+      {
+        foreach (ChatItem o in ChatListing.SelectedItems)
         {
           if (o == null) continue;
-          sReplyTo += "> "+o.UserID + "," + o.Text + "\n";
+          sReplyTo += "> " + o.UserID + "," + o.Text + "\n";
         }
       }
       chatControl1.Insert(sReplyTo);

@@ -29,6 +29,7 @@
     private void InitializeComponent()
     {
       this.webBrowser1 = new System.Windows.Forms.WebBrowser();
+      this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
       this.SuspendLayout();
       // 
       // webBrowser1
@@ -59,5 +60,6 @@
     #endregion
 
     private System.Windows.Forms.WebBrowser webBrowser1;
+    private System.ComponentModel.BackgroundWorker backgroundWorker1;
   }
 }

@@ -1,4 +1,4 @@
-﻿namespace VoxPopuliClient.src.forms
+﻿namespace VoxPopuliClient.forms
 {
   partial class MacMain
   {
@@ -32,6 +32,7 @@
       this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
       this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
       this.chatList1 = new VoxPopuliClient.src.controls.ChatList();
+      this.trendsControl1 = new VoxPopuliClient.src.controls.TrendsControl();
       this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
       this.urlBar1 = new VoxPopuliClient.src.controls.URLBar();
       this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
@@ -58,7 +59,7 @@
       this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 85F));
       this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
       this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-      this.tableLayoutPanel1.Size = new System.Drawing.Size(882, 578);
+      this.tableLayoutPanel1.Size = new System.Drawing.Size(640, 615);
       this.tableLayoutPanel1.TabIndex = 0;
       // 
       // tableLayoutPanel2
@@ -67,21 +68,31 @@
       this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
       this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 300F));
       this.tableLayoutPanel2.Controls.Add(this.chatList1, 1, 0);
+      this.tableLayoutPanel2.Controls.Add(this.trendsControl1, 0, 0);
       this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
       this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 88);
       this.tableLayoutPanel2.Name = "tableLayoutPanel2";
       this.tableLayoutPanel2.RowCount = 1;
       this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-      this.tableLayoutPanel2.Size = new System.Drawing.Size(876, 455);
+      this.tableLayoutPanel2.Size = new System.Drawing.Size(634, 492);
       this.tableLayoutPanel2.TabIndex = 0;
       // 
       // chatList1
       // 
       this.chatList1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-      this.chatList1.Location = new System.Drawing.Point(579, 3);
+      this.chatList1.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.chatList1.Location = new System.Drawing.Point(337, 3);
       this.chatList1.Name = "chatList1";
-      this.chatList1.Size = new System.Drawing.Size(294, 441);
+      this.chatList1.Size = new System.Drawing.Size(294, 486);
       this.chatList1.TabIndex = 0;
+      // 
+      // trendsControl1
+      // 
+      this.trendsControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.trendsControl1.Location = new System.Drawing.Point(3, 3);
+      this.trendsControl1.Name = "trendsControl1";
+      this.trendsControl1.Size = new System.Drawing.Size(328, 486);
+      this.trendsControl1.TabIndex = 1;
       // 
       // tableLayoutPanel3
       // 
@@ -95,7 +106,7 @@
       this.tableLayoutPanel3.Name = "tableLayoutPanel3";
       this.tableLayoutPanel3.RowCount = 1;
       this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-      this.tableLayoutPanel3.Size = new System.Drawing.Size(876, 79);
+      this.tableLayoutPanel3.Size = new System.Drawing.Size(634, 79);
       this.tableLayoutPanel3.TabIndex = 1;
       // 
       // urlBar1
@@ -104,7 +115,7 @@
       this.urlBar1.Dock = System.Windows.Forms.DockStyle.Fill;
       this.urlBar1.Location = new System.Drawing.Point(3, 3);
       this.urlBar1.Name = "urlBar1";
-      this.urlBar1.Size = new System.Drawing.Size(838, 73);
+      this.urlBar1.Size = new System.Drawing.Size(596, 73);
       this.urlBar1.TabIndex = 0;
       // 
       // tableLayoutPanel4
@@ -113,7 +124,7 @@
       this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
       this.tableLayoutPanel4.Controls.Add(this.CompactButton, 0, 0);
       this.tableLayoutPanel4.Controls.Add(this.SettingsButton, 0, 1);
-      this.tableLayoutPanel4.Location = new System.Drawing.Point(847, 3);
+      this.tableLayoutPanel4.Location = new System.Drawing.Point(605, 3);
       this.tableLayoutPanel4.Name = "tableLayoutPanel4";
       this.tableLayoutPanel4.RowCount = 2;
       this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -153,9 +164,9 @@
       // 
       this.StatusLabel.AutoSize = true;
       this.StatusLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.StatusLabel.Location = new System.Drawing.Point(3, 546);
+      this.StatusLabel.Location = new System.Drawing.Point(3, 583);
       this.StatusLabel.Name = "StatusLabel";
-      this.StatusLabel.Size = new System.Drawing.Size(876, 32);
+      this.StatusLabel.Size = new System.Drawing.Size(634, 32);
       this.StatusLabel.TabIndex = 2;
       this.StatusLabel.Text = "Welcome to SugarPop";
       this.StatusLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -164,8 +175,9 @@
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.ClientSize = new System.Drawing.Size(882, 578);
+      this.ClientSize = new System.Drawing.Size(640, 615);
       this.Controls.Add(this.tableLayoutPanel1);
+      this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
       this.Name = "MacMain";
       this.Text = "MacMain";
       this.Shown += new System.EventHandler(this.MacMain_Shown);
@@ -182,12 +194,13 @@
 
     private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
     private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-    private controls.ChatList chatList1;
+    private src.controls.ChatList chatList1;
     private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-    private controls.URLBar urlBar1;
+    private src.controls.URLBar urlBar1;
     private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
     private System.Windows.Forms.Button CompactButton;
     private System.Windows.Forms.Button SettingsButton;
     private System.Windows.Forms.Label StatusLabel;
+    private src.controls.TrendsControl trendsControl1;
   }
 }

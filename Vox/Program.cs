@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using VoxPopuliClient.forms;
 
-namespace VoxPopuliClient
+namespace Vox
 {
   static class Program
   {
@@ -17,12 +16,7 @@ namespace VoxPopuliClient
     {
       Application.EnableVisualStyles();
       Application.SetCompatibleTextRenderingDefault(false);
-#if MAC
-      Application.Run(new MacMain());
-#else
-        Application.Run(new PopForm());
-#endif
-    
+      Application.Run(new Form1());
     }
   }
 }

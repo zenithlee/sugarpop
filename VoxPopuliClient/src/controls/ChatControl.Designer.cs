@@ -35,6 +35,8 @@
       this.CommentButton = new System.Windows.Forms.Button();
       this.TextCounter = new System.Windows.Forms.Label();
       this.GetTrendsButton = new System.Windows.Forms.Button();
+      this.ChannelCombo = new System.Windows.Forms.ComboBox();
+      this.ChatDescr = new System.Windows.Forms.Label();
       this.timer1 = new System.Windows.Forms.Timer(this.components);
       this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
       this.tableLayoutPanel1.SuspendLayout();
@@ -42,20 +44,24 @@
       // 
       // tableLayoutPanel1
       // 
-      this.tableLayoutPanel1.BackColor = System.Drawing.Color.White;
-      this.tableLayoutPanel1.ColumnCount = 4;
+      this.tableLayoutPanel1.BackColor = System.Drawing.Color.Gainsboro;
+      this.tableLayoutPanel1.ColumnCount = 5;
       this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 40F));
       this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
       this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 75F));
+      this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 75F));
       this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 110F));
-      this.tableLayoutPanel1.Controls.Add(this.CommentBox, 0, 0);
-      this.tableLayoutPanel1.Controls.Add(this.CommentButton, 3, 1);
-      this.tableLayoutPanel1.Controls.Add(this.TextCounter, 0, 1);
-      this.tableLayoutPanel1.Controls.Add(this.GetTrendsButton, 2, 1);
+      this.tableLayoutPanel1.Controls.Add(this.CommentBox, 0, 1);
+      this.tableLayoutPanel1.Controls.Add(this.CommentButton, 4, 2);
+      this.tableLayoutPanel1.Controls.Add(this.TextCounter, 0, 2);
+      this.tableLayoutPanel1.Controls.Add(this.GetTrendsButton, 3, 2);
+      this.tableLayoutPanel1.Controls.Add(this.ChannelCombo, 2, 2);
+      this.tableLayoutPanel1.Controls.Add(this.ChatDescr, 0, 0);
       this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
       this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
       this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-      this.tableLayoutPanel1.RowCount = 2;
+      this.tableLayoutPanel1.RowCount = 3;
+      this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
       this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
       this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
       this.tableLayoutPanel1.Size = new System.Drawing.Size(560, 219);
@@ -65,12 +71,12 @@
       // 
       this.CommentBox.BackColor = System.Drawing.Color.White;
       this.CommentBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-      this.tableLayoutPanel1.SetColumnSpan(this.CommentBox, 4);
+      this.tableLayoutPanel1.SetColumnSpan(this.CommentBox, 5);
       this.CommentBox.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.CommentBox.Location = new System.Drawing.Point(3, 3);
+      this.CommentBox.Location = new System.Drawing.Point(3, 23);
       this.CommentBox.MaxLength = 512;
       this.CommentBox.Name = "CommentBox";
-      this.CommentBox.Size = new System.Drawing.Size(554, 181);
+      this.CommentBox.Size = new System.Drawing.Size(554, 161);
       this.CommentBox.TabIndex = 0;
       this.CommentBox.Text = "";
       this.CommentBox.TextChanged += new System.EventHandler(this.CommentBox_TextChanged);
@@ -126,6 +132,43 @@
       this.GetTrendsButton.UseVisualStyleBackColor = false;
       this.GetTrendsButton.Click += new System.EventHandler(this.GetTrendsButton_Click);
       // 
+      // ChannelCombo
+      // 
+      this.ChannelCombo.BackColor = System.Drawing.SystemColors.Window;
+      this.ChannelCombo.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.ChannelCombo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.ChannelCombo.FormattingEnabled = true;
+      this.ChannelCombo.Items.AddRange(new object[] {
+            "whatev",
+            "tek",
+            "politik",
+            "muzak",
+            "twitface",
+            "gozzip",
+            "weibo",
+            "haha",
+            "junk"});
+      this.ChannelCombo.Location = new System.Drawing.Point(303, 190);
+      this.ChannelCombo.Name = "ChannelCombo";
+      this.ChannelCombo.Size = new System.Drawing.Size(69, 24);
+      this.ChannelCombo.TabIndex = 6;
+      this.ChannelCombo.Text = "whatev";
+      this.toolTip1.SetToolTip(this.ChannelCombo, "Channel Selection. Filter converstaions by channel");
+      this.ChannelCombo.SelectedIndexChanged += new System.EventHandler(this.ChannelCombo_SelectedIndexChanged);
+      // 
+      // ChatDescr
+      // 
+      this.ChatDescr.BackColor = System.Drawing.Color.LightGray;
+      this.tableLayoutPanel1.SetColumnSpan(this.ChatDescr, 5);
+      this.ChatDescr.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.ChatDescr.Location = new System.Drawing.Point(0, 0);
+      this.ChatDescr.Margin = new System.Windows.Forms.Padding(0);
+      this.ChatDescr.Name = "ChatDescr";
+      this.ChatDescr.Size = new System.Drawing.Size(560, 20);
+      this.ChatDescr.TabIndex = 7;
+      this.ChatDescr.Text = ">";
+      this.ChatDescr.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+      // 
       // ChatControl
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -148,5 +191,7 @@
     private System.Windows.Forms.Button GetTrendsButton;
     private System.Windows.Forms.Timer timer1;
     private System.Windows.Forms.ToolTip toolTip1;
+    private System.Windows.Forms.ComboBox ChannelCombo;
+    private System.Windows.Forms.Label ChatDescr;
   }
 }

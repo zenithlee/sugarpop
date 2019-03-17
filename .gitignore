@@ -1,3 +1,6 @@
+Vox
+Vox/bin
+**/bin
 .vs
 Deploy
 **/obj

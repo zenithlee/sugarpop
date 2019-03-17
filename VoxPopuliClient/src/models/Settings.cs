@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VoxPopuliClient.src
+namespace VoxPopuliClient
 {
   public class Settings
   {
@@ -14,14 +14,26 @@ namespace VoxPopuliClient.src
     private static string SettingsFile = "settings.dat";
     private string screenName = "Anon";
     private bool startInCompactMode = false;
+    private bool stayOnTop = false;
     private string serverMessage = "";
     private string serverURL = "http://bigfun.co.za/pop/";
+    public string Browser = "Default";
 
-    public string ServerURL { get => serverURL; set => serverURL = value; }
+    public string ServerURL {
+      get
+      {
+        return serverURL;
+        //#if DEBUG
+        //      return "http://localhost:7057/";        
+        //#endif
+      }
+      set => serverURL = value;
+    }
     public string ServerMessage { get => serverMessage; set => serverMessage = value; }
     public bool StartInCompactMode { get => startInCompactMode; set => startInCompactMode = value; }
     public string ScreenName { get => screenName; set => screenName = value; }
     public string GUID { get => gUID; set => gUID = value; }
+    public bool StayOnTop { get => stayOnTop; set => stayOnTop = value; }
 
     public static Settings Load()
     {

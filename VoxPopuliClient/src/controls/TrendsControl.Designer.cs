@@ -81,11 +81,12 @@
       // 
       this.columnHeader3.Text = "Date";
       this.columnHeader3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-      this.columnHeader3.Width = 90;
+      this.columnHeader3.Width = 45;
       // 
       // columnHeader1
       // 
       this.columnHeader1.Text = "URL";
+      this.columnHeader1.Width = 2;
       // 
       // columnHeader2
       // 

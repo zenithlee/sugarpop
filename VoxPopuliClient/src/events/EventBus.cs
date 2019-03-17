@@ -10,6 +10,8 @@ namespace VoxPopuliClient.events
   public class EventBus
   {
     public static event EventHandler<TextEvent> URLChangedHandler;
+    public static event EventHandler<TextEvent> ChannelChangeRequestHandler;
+    public static event EventHandler<TextEvent> ChannelChangedHandler;
     public static event EventHandler<TextEvent> BrowseToHandler;
     public static event EventHandler<TextEvent> BrowseCompleteHandler;
     public static event EventHandler<ChatEvent> ChatResponseHandler;
@@ -17,11 +19,27 @@ namespace VoxPopuliClient.events
     public static event EventHandler<TextEvent> NavigateBackHandler;
     public static event EventHandler<TextEvent> NavigateForwardHandler;
 
+    public static event EventHandler<BooleanEvent> TopMostChangedHandler;
+
     public static event EventHandler<TrendRequestEvent> TrendRequest;
+
+    public static void ChangeTopMost(bool b)
+    {
+      TopMostChangedHandler?.Invoke(null, new BooleanEvent(b));
+    }
 
     public static void RequestTrends(bool show)
     {
       TrendRequest?.Invoke(null, new TrendRequestEvent(show));
+    }
+
+    public static void ChangeChannelRequest(string sChannel)
+    {
+      ChannelChangeRequestHandler?.Invoke(null, new TextEvent(sChannel));
+    }
+    public static void ChangedChannel(string sChannel)
+    {
+      ChannelChangedHandler?.Invoke(null, new TextEvent(sChannel));
     }
 
     public static void NavigateBack(string s)
@@ -59,3 +77,4 @@ namespace VoxPopuliClient.events
     }
   }
 }
+
