@@ -100,7 +100,7 @@
       this.label1.Name = "label1";
       this.label1.Size = new System.Drawing.Size(235, 16);
       this.label1.TabIndex = 0;
-      this.label1.Text = "SugarPop Server";
+      this.label1.Text = "Vox Server";
       this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
       // 
       // ServerText
@@ -183,6 +183,8 @@
       // StayOnTopCheck
       // 
       this.StayOnTopCheck.AutoSize = true;
+      this.StayOnTopCheck.Checked = true;
+      this.StayOnTopCheck.CheckState = System.Windows.Forms.CheckState.Checked;
       this.StayOnTopCheck.Dock = System.Windows.Forms.DockStyle.Fill;
       this.StayOnTopCheck.Location = new System.Drawing.Point(244, 51);
       this.StayOnTopCheck.Name = "StayOnTopCheck";

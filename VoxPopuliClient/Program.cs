@@ -20,7 +20,7 @@ namespace VoxPopuliClient
 #if MAC
       Application.Run(new MacMain());
 #else
-        Application.Run(new PopForm());
+        Application.Run(new MacMain());
 #endif
     
     }

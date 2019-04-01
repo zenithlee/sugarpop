@@ -34,7 +34,6 @@
       this.CommentBox = new System.Windows.Forms.RichTextBox();
       this.CommentButton = new System.Windows.Forms.Button();
       this.TextCounter = new System.Windows.Forms.Label();
-      this.GetTrendsButton = new System.Windows.Forms.Button();
       this.ChannelCombo = new System.Windows.Forms.ComboBox();
       this.ChatDescr = new System.Windows.Forms.Label();
       this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -54,8 +53,7 @@
       this.tableLayoutPanel1.Controls.Add(this.CommentBox, 0, 1);
       this.tableLayoutPanel1.Controls.Add(this.CommentButton, 4, 2);
       this.tableLayoutPanel1.Controls.Add(this.TextCounter, 0, 2);
-      this.tableLayoutPanel1.Controls.Add(this.GetTrendsButton, 3, 2);
-      this.tableLayoutPanel1.Controls.Add(this.ChannelCombo, 2, 2);
+      this.tableLayoutPanel1.Controls.Add(this.ChannelCombo, 3, 2);
       this.tableLayoutPanel1.Controls.Add(this.ChatDescr, 0, 0);
       this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
       this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
@@ -113,25 +111,6 @@
       this.TextCounter.Text = "512";
       this.TextCounter.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
       // 
-      // GetTrendsButton
-      // 
-      this.GetTrendsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(212)))), ((int)(((byte)(255)))));
-      this.GetTrendsButton.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.GetTrendsButton.FlatAppearance.BorderSize = 0;
-      this.GetTrendsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-      this.GetTrendsButton.Image = ((System.Drawing.Image)(resources.GetObject("GetTrendsButton.Image")));
-      this.GetTrendsButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-      this.GetTrendsButton.Location = new System.Drawing.Point(376, 188);
-      this.GetTrendsButton.Margin = new System.Windows.Forms.Padding(1);
-      this.GetTrendsButton.Name = "GetTrendsButton";
-      this.GetTrendsButton.Size = new System.Drawing.Size(73, 30);
-      this.GetTrendsButton.TabIndex = 5;
-      this.GetTrendsButton.Text = "Trends";
-      this.GetTrendsButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-      this.toolTip1.SetToolTip(this.GetTrendsButton, "Pop Out a list of Trends where people are talking");
-      this.GetTrendsButton.UseVisualStyleBackColor = false;
-      this.GetTrendsButton.Click += new System.EventHandler(this.GetTrendsButton_Click);
-      // 
       // ChannelCombo
       // 
       this.ChannelCombo.BackColor = System.Drawing.SystemColors.Window;
@@ -148,7 +127,7 @@
             "weibo",
             "haha",
             "junk"});
-      this.ChannelCombo.Location = new System.Drawing.Point(303, 190);
+      this.ChannelCombo.Location = new System.Drawing.Point(378, 190);
       this.ChannelCombo.Name = "ChannelCombo";
       this.ChannelCombo.Size = new System.Drawing.Size(69, 24);
       this.ChannelCombo.TabIndex = 6;
@@ -188,7 +167,6 @@
     private System.Windows.Forms.RichTextBox CommentBox;
     private System.Windows.Forms.Button CommentButton;
     private System.Windows.Forms.Label TextCounter;
-    private System.Windows.Forms.Button GetTrendsButton;
     private System.Windows.Forms.Timer timer1;
     private System.Windows.Forms.ToolTip toolTip1;
     private System.Windows.Forms.ComboBox ChannelCombo;

@@ -37,13 +37,13 @@
       this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
       this.BackButton = new System.Windows.Forms.Button();
       this.FwdButton = new System.Windows.Forms.Button();
-      this.voteControl1 = new VoxPopuliClient.src.controls.VoteControl();
       this.imageList1 = new System.Windows.Forms.ImageList(this.components);
       this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
       this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
       this.renameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
       this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.voteControl1 = new VoxPopuliClient.src.controls.VoteControl();
       this.tableLayoutPanel1.SuspendLayout();
       this.contextMenuStrip1.SuspendLayout();
       this.SuspendLayout();
@@ -58,20 +58,21 @@
       this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
       this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 35F));
       this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 55F));
-      this.tableLayoutPanel1.Controls.Add(this.GoButton, 5, 0);
-      this.tableLayoutPanel1.Controls.Add(this.URLBox, 2, 0);
-      this.tableLayoutPanel1.Controls.Add(this.FavoriteButton, 4, 0);
-      this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel1, 0, 1);
-      this.tableLayoutPanel1.Controls.Add(this.BackButton, 0, 0);
-      this.tableLayoutPanel1.Controls.Add(this.FwdButton, 1, 0);
-      this.tableLayoutPanel1.Controls.Add(this.voteControl1, 3, 0);
+      this.tableLayoutPanel1.Controls.Add(this.GoButton, 5, 1);
+      this.tableLayoutPanel1.Controls.Add(this.URLBox, 0, 0);
+      this.tableLayoutPanel1.Controls.Add(this.FavoriteButton, 4, 1);
+      this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel1, 0, 2);
+      this.tableLayoutPanel1.Controls.Add(this.BackButton, 0, 1);
+      this.tableLayoutPanel1.Controls.Add(this.FwdButton, 1, 1);
+      this.tableLayoutPanel1.Controls.Add(this.voteControl1, 3, 1);
       this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
       this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
       this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-      this.tableLayoutPanel1.RowCount = 2;
+      this.tableLayoutPanel1.RowCount = 3;
+      this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
       this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
-      this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-      this.tableLayoutPanel1.Size = new System.Drawing.Size(787, 64);
+      this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+      this.tableLayoutPanel1.Size = new System.Drawing.Size(417, 92);
       this.tableLayoutPanel1.TabIndex = 0;
       // 
       // GoButton
@@ -81,7 +82,7 @@
       this.GoButton.FlatAppearance.BorderSize = 0;
       this.GoButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
       this.GoButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.GoButton.Location = new System.Drawing.Point(733, 1);
+      this.GoButton.Location = new System.Drawing.Point(363, 29);
       this.GoButton.Margin = new System.Windows.Forms.Padding(1);
       this.GoButton.Name = "GoButton";
       this.GoButton.Size = new System.Drawing.Size(53, 32);
@@ -93,13 +94,14 @@
       // URLBox
       // 
       this.URLBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+      this.tableLayoutPanel1.SetColumnSpan(this.URLBox, 6);
       this.URLBox.Dock = System.Windows.Forms.DockStyle.Fill;
       this.URLBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.URLBox.Location = new System.Drawing.Point(67, 3);
+      this.URLBox.Location = new System.Drawing.Point(3, 3);
       this.URLBox.Name = "URLBox";
-      this.URLBox.Size = new System.Drawing.Size(507, 20);
+      this.URLBox.Size = new System.Drawing.Size(411, 20);
       this.URLBox.TabIndex = 1;
-      this.URLBox.Text = "http://bigfun.co.za/pop/";
+      this.URLBox.Text = "http://bigfun.co.za/vox/";
       this.URLBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.URLBox_KeyUp);
       // 
       // FavoriteButton
@@ -108,7 +110,7 @@
       this.FavoriteButton.FlatAppearance.BorderSize = 0;
       this.FavoriteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
       this.FavoriteButton.Image = ((System.Drawing.Image)(resources.GetObject("FavoriteButton.Image")));
-      this.FavoriteButton.Location = new System.Drawing.Point(700, 3);
+      this.FavoriteButton.Location = new System.Drawing.Point(330, 31);
       this.FavoriteButton.Name = "FavoriteButton";
       this.FavoriteButton.Size = new System.Drawing.Size(29, 28);
       this.FavoriteButton.TabIndex = 2;
@@ -122,10 +124,10 @@
       this.flowLayoutPanel1.BackColor = System.Drawing.Color.Gainsboro;
       this.tableLayoutPanel1.SetColumnSpan(this.flowLayoutPanel1, 6);
       this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.flowLayoutPanel1.Location = new System.Drawing.Point(1, 35);
+      this.flowLayoutPanel1.Location = new System.Drawing.Point(1, 63);
       this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(1);
       this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-      this.flowLayoutPanel1.Size = new System.Drawing.Size(785, 28);
+      this.flowLayoutPanel1.Size = new System.Drawing.Size(415, 30);
       this.flowLayoutPanel1.TabIndex = 3;
       // 
       // BackButton
@@ -135,7 +137,7 @@
       this.BackButton.FlatAppearance.BorderSize = 0;
       this.BackButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
       this.BackButton.Image = ((System.Drawing.Image)(resources.GetObject("BackButton.Image")));
-      this.BackButton.Location = new System.Drawing.Point(1, 1);
+      this.BackButton.Location = new System.Drawing.Point(1, 29);
       this.BackButton.Margin = new System.Windows.Forms.Padding(1);
       this.BackButton.Name = "BackButton";
       this.BackButton.Size = new System.Drawing.Size(30, 32);
@@ -150,21 +152,13 @@
       this.FwdButton.FlatAppearance.BorderSize = 0;
       this.FwdButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
       this.FwdButton.Image = ((System.Drawing.Image)(resources.GetObject("FwdButton.Image")));
-      this.FwdButton.Location = new System.Drawing.Point(33, 1);
+      this.FwdButton.Location = new System.Drawing.Point(33, 29);
       this.FwdButton.Margin = new System.Windows.Forms.Padding(1);
       this.FwdButton.Name = "FwdButton";
       this.FwdButton.Size = new System.Drawing.Size(30, 32);
       this.FwdButton.TabIndex = 5;
       this.FwdButton.UseVisualStyleBackColor = false;
       this.FwdButton.Click += new System.EventHandler(this.FwdButton_Click);
-      // 
-      // voteControl1
-      // 
-      this.voteControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.voteControl1.Location = new System.Drawing.Point(580, 3);
-      this.voteControl1.Name = "voteControl1";
-      this.voteControl1.Size = new System.Drawing.Size(114, 28);
-      this.voteControl1.TabIndex = 6;
       // 
       // imageList1
       // 
@@ -203,6 +197,14 @@
       this.deleteToolStripMenuItem.Text = "Delete";
       this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
       // 
+      // voteControl1
+      // 
+      this.voteControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.voteControl1.Location = new System.Drawing.Point(210, 31);
+      this.voteControl1.Name = "voteControl1";
+      this.voteControl1.Size = new System.Drawing.Size(114, 28);
+      this.voteControl1.TabIndex = 6;
+      // 
       // URLBar
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -210,7 +212,7 @@
       this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
       this.Controls.Add(this.tableLayoutPanel1);
       this.Name = "URLBar";
-      this.Size = new System.Drawing.Size(787, 64);
+      this.Size = new System.Drawing.Size(417, 92);
       this.tableLayoutPanel1.ResumeLayout(false);
       this.tableLayoutPanel1.PerformLayout();
       this.contextMenuStrip1.ResumeLayout(false);

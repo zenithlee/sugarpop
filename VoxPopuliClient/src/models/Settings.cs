@@ -16,7 +16,7 @@ namespace VoxPopuliClient
     private bool startInCompactMode = false;
     private bool stayOnTop = false;
     private string serverMessage = "";
-    private string serverURL = "http://bigfun.co.za/pop/";
+    private string serverURL = "http://bigfun.co.za/vox/";
     public string Browser = "Default";
 
     public string ServerURL {

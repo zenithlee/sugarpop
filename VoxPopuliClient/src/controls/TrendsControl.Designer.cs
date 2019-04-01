@@ -38,7 +38,6 @@
       this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
       this.RefreshButton = new System.Windows.Forms.Button();
       this.label1 = new System.Windows.Forms.Label();
-      this.PopOutButton = new System.Windows.Forms.Button();
       this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
       this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
       this.tableLayoutPanel1.SuspendLayout();
@@ -101,7 +100,6 @@
       this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 39.86333F));
       this.tableLayoutPanel2.Controls.Add(this.RefreshButton, 2, 0);
       this.tableLayoutPanel2.Controls.Add(this.label1, 1, 0);
-      this.tableLayoutPanel2.Controls.Add(this.PopOutButton, 0, 0);
       this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
       this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 420);
       this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -138,19 +136,6 @@
       this.label1.Text = "Double-Click a link to Pop";
       this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
       // 
-      // PopOutButton
-      // 
-      this.PopOutButton.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.PopOutButton.Image = ((System.Drawing.Image)(resources.GetObject("PopOutButton.Image")));
-      this.PopOutButton.Location = new System.Drawing.Point(1, 1);
-      this.PopOutButton.Margin = new System.Windows.Forms.Padding(1);
-      this.PopOutButton.Name = "PopOutButton";
-      this.PopOutButton.Size = new System.Drawing.Size(43, 37);
-      this.PopOutButton.TabIndex = 2;
-      this.toolTip1.SetToolTip(this.PopOutButton, "Pop this panel out");
-      this.PopOutButton.UseVisualStyleBackColor = true;
-      this.PopOutButton.Click += new System.EventHandler(this.PopOutButton_Click);
-      // 
       // TrendsControl
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -176,7 +161,6 @@
     private System.Windows.Forms.Button RefreshButton;
     private System.Windows.Forms.Label label1;
     private System.ComponentModel.BackgroundWorker backgroundWorker1;
-    private System.Windows.Forms.Button PopOutButton;
     private System.Windows.Forms.ToolTip toolTip1;
   }
 }

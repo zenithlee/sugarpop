@@ -40,7 +40,7 @@ namespace VoxPopuliClient.services
 
     public static void BrowseTo(string sURL)
     {
-      if (Globals.InCompactMode == true)
+     // if (Globals.InCompactMode == true)
       {
         if (Globals.settings.Browser == "FireFox")
         {
@@ -53,12 +53,23 @@ namespace VoxPopuliClient.services
             EventBus.Stats(ex.Message);
           }
         }
-
+        else
         if (Globals.settings.Browser == BrowserSync.SAFARI)
         {
           try
           {
             Process.Start(@"/Applications/safari.app/contents/macos/Safari", sURL);
+          }
+          catch (Exception ex)
+          {
+            EventBus.Stats(ex.Message);
+          }
+        }
+        else
+        {
+          try
+          {
+            Process.Start(sURL);
           }
           catch (Exception ex)
           {

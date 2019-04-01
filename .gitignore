@@ -3,6 +3,7 @@ Vox/bin
 **/bin
 .vs
 Deploy
+Deply_Vox
 **/obj
 packages
 VoxPopServer

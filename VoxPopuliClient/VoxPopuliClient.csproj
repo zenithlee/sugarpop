@@ -11,7 +11,7 @@
     <ProjectGuid>{9B5F34F5-7BD2-48D5-A4EA-2E07B09A2E01}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>VoxPopuliClient</RootNamespace>
-    <AssemblyName>SugarPop</AssemblyName>
+    <AssemblyName>Vox</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -38,7 +38,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\Deploy\</OutputPath>
+    <OutputPath>..\Deply_Vox\</OutputPath>
     <DefineConstants>TRACE;DEBUG</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -48,7 +48,7 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\Deploy\</OutputPath>
+    <OutputPath>..\Deply_Vox\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -75,10 +75,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PopForm.cs">
+    <Compile Include="src\forms\PopForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PopForm.Designer.cs">
+    <Compile Include="src\forms\PopForm.Designer.cs">
       <DependentUpon>PopForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -165,7 +165,7 @@
     <Compile Include="src\models\TrendItem.cs" />
     <Compile Include="src\services\BrowserSync.cs" />
     <Compile Include="src\models\Settings.cs" />
-    <EmbeddedResource Include="PopForm.resx">
+    <EmbeddedResource Include="src\forms\PopForm.resx">
       <DependentUpon>PopForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

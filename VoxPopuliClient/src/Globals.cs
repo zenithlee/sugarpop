@@ -13,7 +13,7 @@ namespace VoxPopuliClient
     public static Settings settings;
     
     public static string CurrentTitle = "";
-    public static string CurrentURL = "http://bigfun.co.za/pop/?version=0.25";    
+    public static string CurrentURL = "http://bigfun.co.za/vox/?version=0.26";    
     public static string UserName = "Anon";
     public static bool InCompactMode = false;
 

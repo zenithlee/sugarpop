@@ -99,13 +99,15 @@ namespace VoxPopuliClient.src.controls
         });
 
         string sData = GetData(sURL);
-
+        
         if (backgroundWorker1.CancellationPending) break;
         Invoke((MethodInvoker)delegate
         {
           ListViewItem lvi = TrendsView.Items[i];
           lvi.SubItems[2].Text = sData;
         });
+
+        SaveTrendCache();
       }
     }
 
@@ -186,6 +188,8 @@ namespace VoxPopuliClient.src.controls
 
     void ParseResults(string s)
     {
+      if (string.IsNullOrEmpty(s)) return;
+
       TrendsView.Items.Clear();
       string[] Items = s.Split('\n');
       foreach (string Item in Items)

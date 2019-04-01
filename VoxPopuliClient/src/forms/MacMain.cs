@@ -16,8 +16,8 @@ namespace VoxPopuliClient.forms
 {
   public partial class MacMain : Form
   {
-    bool CompactMode = false;
-    int CompactWidth = 400;
+    //bool CompactMode = false;
+    int CompactWidth = 420;
     int FullWidth = 800;
     int FullSplit = 600;
 
@@ -25,7 +25,8 @@ namespace VoxPopuliClient.forms
     {
       InitializeComponent();
       EventBus.StatusHandler += EventBus_StatusHandler;
-      EventBus.BrowseToHandler += EventBus_BrowseToHandler; 
+      EventBus.BrowseToHandler += EventBus_BrowseToHandler;
+     
     }
 
     private void EventBus_BrowseToHandler(object sender, TextEvent e)
@@ -40,9 +41,10 @@ namespace VoxPopuliClient.forms
     void Setup()
     {
       if (!Globals.IsInDesignMode())
-      {
+      {       
         Globals.settings = Settings.Load();
         Channels.GetInstance(); //populate channels
+        Globals.settings.StartInCompactMode = true;
         Globals.InCompactMode = Globals.settings.StartInCompactMode;
         urlBar1.Setup();
         BrowserOptions bo = new BrowserOptions();
@@ -60,11 +62,9 @@ namespace VoxPopuliClient.forms
 
     void SwitchCompactMode()
     {
-      if (CompactMode == true)
-      {        
-        FullWidth = Width;
+      if (Globals.InCompactMode == true)
+      {                
         Width = CompactWidth;       
-
       }
       else
       {        
@@ -87,7 +87,7 @@ namespace VoxPopuliClient.forms
 
     private void CompactButton_Click(object sender, EventArgs e)
     {
-      CompactMode = !CompactMode;
+      Globals.InCompactMode = !Globals.InCompactMode;
       SwitchCompactMode();
     }
 
