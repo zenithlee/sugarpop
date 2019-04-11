@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,6 +16,10 @@ namespace VoxPopuliClient
     [STAThread]
     static void Main()
     {
+      if ( !Directory.Exists("data"))
+      {
+        Directory.CreateDirectory("data");
+      }
       Application.EnableVisualStyles();
       Application.SetCompatibleTextRenderingDefault(false);
 #if MAC

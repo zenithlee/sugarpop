@@ -18,17 +18,57 @@ namespace VoxPopuliClient.src.controls
   {
     string FavoritesFile = "favorites.json";
     List<Favorite> Favorites = new List<Favorite>();
+
+    List<string> Stack = new List<string>();
+    List<string> FWDStack = new List<string>();
+    string CurrentItem = "";
+
     public URLBar()
     {
       InitializeComponent();
       EventBus.URLChangedHandler += EventBus_URLChangedHandler;
-      
+      EventBus.NavigateBackHandler += EventBus_NavigateBackHandler;
+      EventBus.NavigateForwardHandler += EventBus_NavigateForwardHandler;
+    }
+
+    private void EventBus_NavigateForwardHandler(object sender, TextEvent e)
+    {
+      if (FWDStack.Count > 0)
+      {        
+        URLBox.Text = FWDStack.ElementAt(FWDStack.Count-1);
+        Globals.CurrentURL = URLBox.Text;
+        Stack.Add(FWDStack.ElementAt(FWDStack.Count-1));
+        FWDStack.RemoveAt(FWDStack.Count-1);
+        EventBus.ChangedChannel(Globals.CurrentURL);
+      }
+    }
+
+    private void EventBus_NavigateBackHandler(object sender, TextEvent e)
+    {
+      FWDStack.Add(URLBox.Text);
+      if (Stack.Count > 0)
+      {
+        string Item = Stack.ElementAt(Stack.Count-1);
+        FWDStack.Add(Item);
+        URLBox.Text =Item;
+        Globals.CurrentURL = URLBox.Text;
+        Stack.RemoveAt(Stack.Count-1);
+        EventBus.ChangedChannel(Globals.CurrentURL);
+      }      
+    }
+
+    private void EventBus_URLChangedHandler(object sender, TextEvent e)
+    {
+      Stack.Add(CurrentItem);
+      URLBox.Text = e.Text;      
+      FWDStack.Clear();
     }
 
     public void Setup()
     {
       LoadFavorites();
       URLBox.Text = Globals.CurrentURL;
+      CurrentItem = URLBox.Text;
     }
 
     void SaveFavorites()
@@ -90,10 +130,7 @@ namespace VoxPopuliClient.src.controls
       EventBus.BrowseTo(f.URL);
     }
 
-    private void EventBus_URLChangedHandler(object sender, TextEvent e)
-    {
-      URLBox.Text = e.Text;
-    }
+
 
     private void GoButton_Click(object sender, EventArgs e)
     {

@@ -102,7 +102,7 @@ namespace VoxPopuliClient
         EventBus.BrowseTo(Globals.CurrentURL);
         chatList1.Setup();
         SwitchCompactMode();
-        EventBus.Stats("Welcome to SugarPop. Commenting as: " + Globals.settings.ScreenName);
+        EventBus.Stats("Welcome to Vox. Commenting as: " + Globals.settings.ScreenName);
         if (Globals.settings.StayOnTop == true)
         {
           this.TopMost = true;

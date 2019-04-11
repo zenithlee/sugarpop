@@ -75,6 +75,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="src\controls\VChatItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="src\controls\VChatItem.Designer.cs">
+      <DependentUpon>VChatItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="src\forms\PopForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -130,11 +136,11 @@
     </Compile>
     <Compile Include="src\events\BooleanEvent.cs" />
     <Compile Include="src\events\TrendRequestEvent.cs" />
-    <Compile Include="src\forms\MacMain.cs">
+    <Compile Include="src\forms\VoxForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="src\forms\MacMain.Designer.cs">
-      <DependentUpon>MacMain.cs</DependentUpon>
+    <Compile Include="src\forms\VoxForm.Designer.cs">
+      <DependentUpon>VoxForm.cs</DependentUpon>
     </Compile>
     <Compile Include="src\forms\RegEx.cs" />
     <Compile Include="src\forms\SettingsForm.cs">
@@ -165,6 +171,10 @@
     <Compile Include="src\models\TrendItem.cs" />
     <Compile Include="src\services\BrowserSync.cs" />
     <Compile Include="src\models\Settings.cs" />
+    <Compile Include="src\services\Mash.cs" />
+    <EmbeddedResource Include="src\controls\VChatItem.resx">
+      <DependentUpon>VChatItem.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="src\forms\PopForm.resx">
       <DependentUpon>PopForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -198,8 +208,8 @@
     <EmbeddedResource Include="src\controls\VoteControl.resx">
       <DependentUpon>VoteControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="src\forms\MacMain.resx">
-      <DependentUpon>MacMain.cs</DependentUpon>
+    <EmbeddedResource Include="src\forms\VoxForm.resx">
+      <DependentUpon>VoxForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="src\forms\SettingsForm.resx">
       <DependentUpon>SettingsForm.cs</DependentUpon>

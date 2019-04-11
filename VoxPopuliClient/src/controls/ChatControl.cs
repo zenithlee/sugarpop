@@ -53,9 +53,13 @@ namespace VoxPopuliClient.src.controls
         Globals.settings.ScreenName = "Anon";
       }
 
+      string CText = CommentBox.Text;
+      CText = CText.Trim();
+      if (string.IsNullOrEmpty(CText)) return;
+
       ChatItem chat = new ChatItem()
       {
-        Text = CommentBox.Text,
+        Text = Mash.EnMash(Globals.settings.EncryptionKey, CText),
         Channel = ChannelCombo.Text,
         UserID = Globals.settings.ScreenName,
         UserGUID = Globals.settings.GUID,
@@ -67,11 +71,17 @@ namespace VoxPopuliClient.src.controls
 
       string sChatData = JsonConvert.SerializeObject(chat);
 
-      string sURL = Globals.settings.ServerURL
+      Dictionary<string, string> parms = new Dictionary<string, string>();
+      parms.Add("f", "mc");
+      parms.Add("mc", Globals.UserName);
+      parms.Add("co", sChatData);
+      parms.Add("url", Globals.CurrentURL);
+
+      /*string sURL = Globals.settings.ServerURL
         + "?f=mc&uid=" + Globals.UserName
         + "&co=" + sChatData
-        + "&url=" + Globals.CurrentURL;
-      string Result = Server.Request(sURL);
+        + "&url=" + Globals.CurrentURL;*/
+      string Result = Server.Post(Globals.settings.ServerURL, parms);
 
       if( string.IsNullOrEmpty(Result) || Result.Contains("ERROR"))
       {

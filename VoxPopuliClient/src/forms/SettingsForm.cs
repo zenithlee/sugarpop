@@ -46,6 +46,7 @@ namespace VoxPopuliClient.src.controls
       Globals.settings.ScreenName = ScreenNameBox.Text;
       Globals.settings.StayOnTop = StayOnTopCheck.Checked;
       Globals.settings.Browser = BrowserCombo.Text;
+      Globals.settings.EncryptionKey = EncryptionKeyBox.Text;
       Globals.settings.Save();
       Close();
     }
@@ -53,6 +54,16 @@ namespace VoxPopuliClient.src.controls
     private void StayOnTopCheck_CheckedChanged(object sender, EventArgs e)
     {
       EventBus.ChangeTopMost(StayOnTopCheck.Checked);
+    }
+
+    private void CheckUpdatesButton_Click(object sender, EventArgs e)
+    {
+      EventBus.BrowseTo(Globals.CreatorURL + "?version=" + Globals.Version);
+    }
+
+    private void SettingsForm_Load(object sender, EventArgs e)
+    {
+      EncryptionKeyBox.Text = Globals.settings.EncryptionKey;
     }
   }
 }

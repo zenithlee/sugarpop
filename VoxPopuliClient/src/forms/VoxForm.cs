@@ -48,11 +48,11 @@ namespace VoxPopuliClient.forms
         Globals.InCompactMode = Globals.settings.StartInCompactMode;
         urlBar1.Setup();
         BrowserOptions bo = new BrowserOptions();
-        EventBus.BrowseTo(Globals.CurrentURL);
+       // EventBus.BrowseTo(Globals.CurrentURL);
         chatList1.Setup();
         SwitchCompactMode();
         EventBus.RequestTrends(true);
-        EventBus.Stats("Welcome to SugarPop. Commenting as: " + Globals.settings.ScreenName);
+        EventBus.Stats("Welcome to Vox. Commenting as: " + Globals.settings.ScreenName);
         if (Globals.settings.StayOnTop == true)
         {
           this.TopMost = true;

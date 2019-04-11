@@ -11,6 +11,7 @@ using VoxPopuliClient.events;
 using VoxPopuliClient.comms;
 using Newtonsoft.Json;
 using VoxPopuliClient.models;
+using System.Reflection;
 
 namespace VoxPopuliClient.src.controls
 {
@@ -28,6 +29,7 @@ namespace VoxPopuliClient.src.controls
       EventBus.ChatResponseHandler += EventBus_ChatResponseHandler;
       EventBus.BrowseCompleteHandler += EventBus_BrowseCompleteHandler;
       EventBus.ChannelChangedHandler += EventBus_ChannelChangedHandler;
+      
     }
 
     private void EventBus_ChannelChangedHandler(object sender, TextEvent e)
@@ -42,10 +44,15 @@ namespace VoxPopuliClient.src.controls
 
     public void Setup()
     {
+     /* typeof(Panel).InvokeMember("DoubleBuffered",
+    BindingFlags.SetProperty | BindingFlags.Instance | BindingFlags.NonPublic,
+    null, ChatListing, new object[] { true });
+    */
+
       if (!Globals.IsInDesignMode())
       {
         timer1.Start();
-        //RefreshContent();
+        RefreshContent();
       }
     }
 
@@ -53,8 +60,9 @@ namespace VoxPopuliClient.src.controls
     {
       BeginInvoke((MethodInvoker)delegate
      {
-       //string s = e.item.UserID + ":" + e.item.Text;       
-       ChatListing.Items.Add(e.item);
+       //string s = e.item.UserID + ":" + e.item.Text;    
+       e.item.Text = Mash.UnMash(Globals.settings.EncryptionKey, e.item.Text);
+       AddItem(e.item);
        ScrollToBottom();
      });
 
@@ -64,15 +72,32 @@ namespace VoxPopuliClient.src.controls
     {
       if (AutoScroll == true)
       {
-        ChatListing.TopIndex = ChatListing.Items.Count - 1;
+       // ChatListing.TopIndex = ChatListing.Items.Count - 1;
       }
+    }
+
+    VChatItem AddItem(ChatItem ci)
+    {
+      VChatItem v = new VChatItem();
+      v.Text = ci.Text;
+      v.UserName = ci.UserID;
+      v.Width = ChatLayout.Width - 5;
+      ChatLayout.Controls.Add(v);
+      return v;
     }
 
     void ParseResults(string s)
     {
+      ChatLayout.Controls.Clear();
+
       if (string.IsNullOrEmpty(s)) return;
+
+
       string[] items = s.Split('\n');
-      ChatListing.Items.Clear();
+      
+
+      int yp = 0;
+
       foreach (string item in items)
       {
         if (string.IsNullOrEmpty(item)) continue;
@@ -88,6 +113,7 @@ namespace VoxPopuliClient.src.controls
             try
             {
               ChatItem ci = JsonConvert.DeserializeObject<ChatItem>(sChatObject);
+              ci.Text = Mash.UnMash(Globals.settings.EncryptionKey, ci.Text);
 
               if (Channels.ChannelCurrent == Channels.CHANNEL_WHATEV)
               {
@@ -98,7 +124,8 @@ namespace VoxPopuliClient.src.controls
                 continue;
               }
 
-              ChatListing.Items.Add(ci);
+              VChatItem v = AddItem(ci);              
+              yp += v.Height;
               //ListViewItemEx lvi = new ListViewItemEx(ci.UserID + ":" + ci.Text);
               //lvi.ImageKey = "voice.ico";
               //CommentsList.Items.Add(lvi);
@@ -108,6 +135,7 @@ namespace VoxPopuliClient.src.controls
               Console.WriteLine(e.Message);
             }
           }
+          ChatLayout.AutoScrollMinSize = new Size(0, yp + 50);
         }
 
       }
@@ -124,6 +152,7 @@ namespace VoxPopuliClient.src.controls
 
     }
 
+    /*
     private void ChatListing_DrawItem(object sender, DrawItemEventArgs e)
     {
       if (e.Index == -1) return;
@@ -159,7 +188,7 @@ namespace VoxPopuliClient.src.controls
 
       //Console.WriteLine(sText);
     }
-
+    
     private void ChatListing_MeasureItem(object sender, MeasureItemEventArgs e)
     {
       if (e.Index == -1) return;
@@ -171,7 +200,7 @@ namespace VoxPopuliClient.src.controls
 
       e.ItemHeight = (int)(resize.Height + 16);
     }
-
+    */
     private void ChatListing_KeyDown(object sender, KeyEventArgs e)
     {
 
@@ -206,6 +235,7 @@ namespace VoxPopuliClient.src.controls
     private void ChatListing_DoubleClick(object sender, EventArgs e)
     {
       string sReplyTo = "Replying to:";
+      /*
       if (ChatListing.SelectedItems.Count > 0)
       {
         foreach (ChatItem o in ChatListing.SelectedItems)
@@ -214,6 +244,7 @@ namespace VoxPopuliClient.src.controls
           sReplyTo += "> " + o.UserID + "," + o.Text + "\n";
         }
       }
+      */
       chatControl1.Insert(sReplyTo);
     }
 
@@ -221,13 +252,14 @@ namespace VoxPopuliClient.src.controls
     public void RefreshContent()
     {
       if (string.IsNullOrEmpty(Globals.CurrentURL)) return;
-
+      timer1.Stop();
       string sURL = Globals.settings.ServerURL
         + "?f=gh&uid=" + Globals.UserName
         + "&url=" + Globals.CurrentURL
         + "&last=" + "123"; //last entry
       string Results = Server.Request(sURL);
       ParseResults(Results);
+      timer1.Start();
     }
 
   }

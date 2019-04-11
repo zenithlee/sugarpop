@@ -37,13 +37,13 @@
       this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
       this.BackButton = new System.Windows.Forms.Button();
       this.FwdButton = new System.Windows.Forms.Button();
+      this.voteControl1 = new VoxPopuliClient.src.controls.VoteControl();
       this.imageList1 = new System.Windows.Forms.ImageList(this.components);
       this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
       this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
       this.renameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
       this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-      this.voteControl1 = new VoxPopuliClient.src.controls.VoteControl();
       this.tableLayoutPanel1.SuspendLayout();
       this.contextMenuStrip1.SuspendLayout();
       this.SuspendLayout();
@@ -160,6 +160,14 @@
       this.FwdButton.UseVisualStyleBackColor = false;
       this.FwdButton.Click += new System.EventHandler(this.FwdButton_Click);
       // 
+      // voteControl1
+      // 
+      this.voteControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.voteControl1.Location = new System.Drawing.Point(210, 31);
+      this.voteControl1.Name = "voteControl1";
+      this.voteControl1.Size = new System.Drawing.Size(114, 28);
+      this.voteControl1.TabIndex = 6;
+      // 
       // imageList1
       // 
       this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
@@ -196,14 +204,6 @@
       this.deleteToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
       this.deleteToolStripMenuItem.Text = "Delete";
       this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
-      // 
-      // voteControl1
-      // 
-      this.voteControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.voteControl1.Location = new System.Drawing.Point(210, 31);
-      this.voteControl1.Name = "voteControl1";
-      this.voteControl1.Size = new System.Drawing.Size(114, 28);
-      this.voteControl1.TabIndex = 6;
       // 
       // URLBar
       // 

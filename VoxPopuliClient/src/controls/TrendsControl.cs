@@ -99,6 +99,10 @@ namespace VoxPopuliClient.src.controls
         });
 
         string sData = GetData(sURL);
+        if (string.IsNullOrEmpty(sData))
+        {
+          sData = sURL;
+        }
         
         if (backgroundWorker1.CancellationPending) break;
         Invoke((MethodInvoker)delegate

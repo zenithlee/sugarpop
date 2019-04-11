@@ -31,7 +31,7 @@
       this.components = new System.ComponentModel.Container();
       System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChatList));
       this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-      this.ChatListing = new System.Windows.Forms.ListBox();
+      this.ChatLayout = new System.Windows.Forms.FlowLayoutPanel();
       this.chatControl1 = new VoxPopuliClient.src.controls.ChatControl();
       this.IconList = new System.Windows.Forms.ImageList(this.components);
       this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -42,7 +42,7 @@
       // 
       this.tableLayoutPanel1.ColumnCount = 1;
       this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-      this.tableLayoutPanel1.Controls.Add(this.ChatListing, 0, 0);
+      this.tableLayoutPanel1.Controls.Add(this.ChatLayout, 0, 0);
       this.tableLayoutPanel1.Controls.Add(this.chatControl1, 0, 1);
       this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
       this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
@@ -53,28 +53,17 @@
       this.tableLayoutPanel1.Size = new System.Drawing.Size(431, 694);
       this.tableLayoutPanel1.TabIndex = 0;
       // 
-      // ChatListing
+      // ChatLayout
       // 
-      this.ChatListing.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(242)))));
-      this.ChatListing.BorderStyle = System.Windows.Forms.BorderStyle.None;
-      this.ChatListing.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.ChatListing.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-      this.ChatListing.ForeColor = System.Drawing.Color.White;
-      this.ChatListing.FormattingEnabled = true;
-      this.ChatListing.ItemHeight = 24;
-      this.ChatListing.Location = new System.Drawing.Point(1, 1);
-      this.ChatListing.Margin = new System.Windows.Forms.Padding(1);
-      this.ChatListing.Name = "ChatListing";
-      this.ChatListing.Size = new System.Drawing.Size(429, 505);
-      this.ChatListing.TabIndex = 1;
-      this.ChatListing.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ChatListing_DrawItem);
-      this.ChatListing.MeasureItem += new System.Windows.Forms.MeasureItemEventHandler(this.ChatListing_MeasureItem);
-      this.ChatListing.DoubleClick += new System.EventHandler(this.ChatListing_DoubleClick);
-      this.ChatListing.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ChatListing_KeyDown);
-      this.ChatListing.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ChatListing_MouseDown);
-      this.ChatListing.MouseLeave += new System.EventHandler(this.ChatListing_MouseLeave);
-      this.ChatListing.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ChatListing_MouseMove);
-      this.ChatListing.MouseUp += new System.Windows.Forms.MouseEventHandler(this.ChatListing_MouseUp);
+      this.ChatLayout.AutoSize = true;
+      this.ChatLayout.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+      this.ChatLayout.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.ChatLayout.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+      this.ChatLayout.Location = new System.Drawing.Point(1, 1);
+      this.ChatLayout.Margin = new System.Windows.Forms.Padding(1);
+      this.ChatLayout.Name = "ChatLayout";
+      this.ChatLayout.Size = new System.Drawing.Size(429, 505);
+      this.ChatLayout.TabIndex = 3;
       // 
       // chatControl1
       // 
@@ -93,7 +82,7 @@
       // 
       // timer1
       // 
-      this.timer1.Interval = 5000;
+      this.timer1.Interval = 9000;
       this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
       // 
       // ChatList
@@ -102,10 +91,12 @@
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
       this.Controls.Add(this.tableLayoutPanel1);
+      this.DoubleBuffered = true;
       this.Name = "ChatList";
       this.Size = new System.Drawing.Size(431, 694);
       this.Load += new System.EventHandler(this.ChatList_Load);
       this.tableLayoutPanel1.ResumeLayout(false);
+      this.tableLayoutPanel1.PerformLayout();
       this.ResumeLayout(false);
 
     }
@@ -116,7 +107,7 @@
     private ChatControl CommentControl;
     private System.Windows.Forms.ImageList IconList;
     private System.Windows.Forms.Timer timer1;
-    private System.Windows.Forms.ListBox ChatListing;
     private ChatControl chatControl1;
+    private System.Windows.Forms.FlowLayoutPanel ChatLayout;
   }
 }

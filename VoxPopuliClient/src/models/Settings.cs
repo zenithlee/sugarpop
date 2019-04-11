@@ -18,14 +18,18 @@ namespace VoxPopuliClient
     private string serverMessage = "";
     private string serverURL = "http://bigfun.co.za/vox/";
     public string Browser = "Default";
+    //the key used to mash up the text. Not decipherable by the server
+    //only conversations with matching keys can unmash
+    private string encryptionKey = "a5vox26313";
 
     public string ServerURL {
       get
       {
+#if DEBUG
+        //return "http://localhost:7057/";
+#endif
         return serverURL;
-        //#if DEBUG
-        //      return "http://localhost:7057/";        
-        //#endif
+
       }
       set => serverURL = value;
     }
@@ -34,6 +38,7 @@ namespace VoxPopuliClient
     public string ScreenName { get => screenName; set => screenName = value; }
     public string GUID { get => gUID; set => gUID = value; }
     public bool StayOnTop { get => stayOnTop; set => stayOnTop = value; }
+    public string EncryptionKey { get => encryptionKey; set => encryptionKey = value; }
 
     public static Settings Load()
     {
